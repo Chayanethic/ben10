@@ -20,14 +20,17 @@ export default function YouTubeMusicBar({
   onAdminChangeTrack: (nextState: RoomYouTubeState | null) => void;
 }) {
   const [localMuted, setLocalMuted] = useState<boolean>(false);
-  const [showTv, setShowTv] = useState<boolean>(false);
+  // Default TV to visible when a track is playing so YouTube never blocks a 1x1px iframe!
+  const [showTv, setShowTv] = useState<boolean>(true);
   const [drawerOpen, setDrawerOpen] = useState<boolean>(false);
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [searchResults, setSearchResults] = useState<YouTubeSearchItem[]>([]);
   const [searching, setSearching] = useState<boolean>(false);
 
+  const iframeRef = useRef<HTMLIFrameElement | null>(null);
+
   // Draggable Floating TV Position (Move anywhere on screen!)
-  const [tvPos, setTvPos] = useState<{ x: number; y: number }>({ x: 14, y: 88 });
+  const [tvPos, setTvPos] = useState<{ x: number; y: number }>({ x: 10, y: 66 });
   const dragRef = useRef<{
     dragging: boolean;
     startX: number;
@@ -38,9 +41,75 @@ export default function YouTubeMusicBar({
     dragging: false,
     startX: 0,
     startY: 0,
-    origX: 14,
-    origY: 88,
+    origX: 10,
+    origY: 66,
   });
+
+  const activeVideoId = youtubeState?.isPlaying ? youtubeState.videoId : null;
+
+  // Send a command to the YouTube IFrame Player via postMessage (playVideo, mute, unMute, setVolume)
+  const sendYouTubeCommand = (func: string, args: unknown[] = []) => {
+    try {
+      const win = iframeRef.current?.contentWindow;
+      if (!win) return;
+      win.postMessage(
+        JSON.stringify({
+          event: 'command',
+          func,
+          args,
+        }),
+        '*'
+      );
+    } catch {
+      // ignore cross-origin frame timing errors
+    }
+  };
+
+  // Whenever a new song starts playing, auto-open the floating TV and trigger play + unmute!
+  useEffect(() => {
+    if (!activeVideoId) return;
+    setShowTv(true);
+    const t1 = setTimeout(() => {
+      sendYouTubeCommand('playVideo');
+      if (!localMuted) {
+        sendYouTubeCommand('unMute');
+        sendYouTubeCommand('setVolume', [100]);
+      }
+    }, 650);
+    const t2 = setTimeout(() => {
+      sendYouTubeCommand('playVideo');
+      if (!localMuted) {
+        sendYouTubeCommand('unMute');
+        sendYouTubeCommand('setVolume', [100]);
+      }
+    }, 1600);
+    return () => {
+      clearTimeout(t1);
+      clearTimeout(t2);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [activeVideoId, youtubeState?.updatedAt]);
+
+  // Toggle mute/unmute smoothly via YouTube JS API without restarting the song!
+  const handleToggleMute = () => {
+    const nextMuted = !localMuted;
+    setLocalMuted(nextMuted);
+    if (nextMuted) {
+      sendYouTubeCommand('mute');
+    } else {
+      sendYouTubeCommand('unMute');
+      sendYouTubeCommand('setVolume', [100]);
+      sendYouTubeCommand('playVideo');
+    }
+  };
+
+  // Force-unlock audio playback on mobile/desktop browsers if autoplay was paused
+  const handleForcePlayAudio = () => {
+    setLocalMuted(false);
+    sendYouTubeCommand('unMute');
+    sendYouTubeCommand('setVolume', [100]);
+    sendYouTubeCommand('playVideo');
+  };
 
   useEffect(() => {
     if (drawerOpen && searchResults.length === 0) {
@@ -63,6 +132,8 @@ export default function YouTubeMusicBar({
   };
 
   const handleSelectTrack = (item: YouTubeSearchItem) => {
+    setLocalMuted(false);
+    setShowTv(true);
     onAdminChangeTrack({
       videoId: item.videoId,
       title: item.title,
@@ -90,8 +161,8 @@ export default function YouTubeMusicBar({
     if (!dragRef.current.dragging) return;
     const dx = e.clientX - dragRef.current.startX;
     const dy = e.clientY - dragRef.current.startY;
-    const maxX = typeof window !== 'undefined' ? window.innerWidth - 240 : 800;
-    const maxY = typeof window !== 'undefined' ? window.innerHeight - 170 : 600;
+    const maxX = typeof window !== 'undefined' ? window.innerWidth - 224 : 800;
+    const maxY = typeof window !== 'undefined' ? window.innerHeight - 165 : 600;
     setTvPos({
       x: Math.max(6, Math.min(maxX, dragRef.current.origX + dx)),
       y: Math.max(6, Math.min(maxY, dragRef.current.origY + dy)),
@@ -102,22 +173,20 @@ export default function YouTubeMusicBar({
     dragRef.current.dragging = false;
   };
 
-  const activeVideoId = youtubeState?.isPlaying ? youtubeState.videoId : null;
-
   return (
     <div className="oa-yt-bar-wrap">
       <div className="oa-yt-pill">
-        <span className="oa-yt-icon">▶</span>
+        <span className="oa-yt-icon">🎵</span>
         <div className="oa-yt-info">
           {activeVideoId && youtubeState ? (
             <span className="oa-yt-marquee mono">
-              <strong>SONG:</strong> {youtubeState.title}
+              <strong>NOW PLAYING:</strong> {youtubeState.title}
             </span>
           ) : (
             <span className="oa-yt-marquee mono" style={{ color: '#94a3b8' }}>
               {isAdmin
-                ? 'Admin DJ: Select a YouTube song to play for all players'
-                : 'No YouTube song playing right now'}
+                ? 'Admin DJ: Tap PLAY SONG to broadcast YouTube music to all players'
+                : 'Waiting for Admin to play a YouTube song...'}
             </span>
           )}
         </div>
@@ -126,7 +195,15 @@ export default function YouTubeMusicBar({
           <>
             <button
               type="button"
-              onClick={() => setLocalMuted((m) => !m)}
+              onClick={handleForcePlayAudio}
+              className="oa-yt-mini-btn active mono"
+              title="Tap if your browser blocked autoplay sound"
+            >
+              ▶ HEAR
+            </button>
+            <button
+              type="button"
+              onClick={handleToggleMute}
               className={`oa-yt-mini-btn mono ${localMuted ? 'muted' : 'active'}`}
             >
               {localMuted ? '🔇 UNMUTE' : '🔊 MUTE'}
@@ -136,7 +213,7 @@ export default function YouTubeMusicBar({
               onClick={() => setShowTv((v) => !v)}
               className={`oa-yt-mini-btn mono ${showTv ? 'active' : ''}`}
             >
-              📺 {showTv ? 'HIDE TV' : 'TV'}
+              📺 {showTv ? 'MINIMIZE' : 'SHOW TV'}
             </button>
           </>
         )}
@@ -148,7 +225,7 @@ export default function YouTubeMusicBar({
               onClick={() => setDrawerOpen((o) => !o)}
               className="oa-yt-mini-btn admin mono"
             >
-              🎵 {activeVideoId ? 'CHANGE' : 'PLAY SONG'}
+              🎵 {activeVideoId ? 'CHANGE SONG' : 'PLAY SONG'}
             </button>
             {activeVideoId && (
               <button
@@ -163,7 +240,10 @@ export default function YouTubeMusicBar({
         )}
       </div>
 
-      {/* Movable / Draggable Floating TV Window */}
+      {/* Movable / Draggable Floating TV Window:
+          IMPORTANT: Never shrink iframe below 200x114px! When minimized (`showTv === false`),
+          keep full 216x122px dimensions and park off-screen (`left: -9999px`) so YouTube
+          never pauses or blocks audio playback! */}
       {activeVideoId && (
         <div
           style={
@@ -172,67 +252,81 @@ export default function YouTubeMusicBar({
                   position: 'fixed',
                   left: `${tvPos.x}px`,
                   top: `${tvPos.y}px`,
-                  zIndex: 90,
-                  width: '236px',
+                  zIndex: 95,
+                  width: '220px',
                   background: '#0f172a',
                   border: '2px solid #34d399',
                   borderRadius: '12px',
-                  boxShadow: '0 16px 40px rgba(0,0,0,0.85)',
+                  boxShadow: '0 16px 40px rgba(0,0,0,0.88)',
                   overflow: 'hidden',
                   touchAction: 'none',
                 }
               : {
                   position: 'fixed',
-                  bottom: '2px',
-                  right: '2px',
-                  width: '1px',
-                  height: '1px',
-                  opacity: 0.01,
+                  left: '-9999px',
+                  top: '0px',
+                  width: '220px',
+                  height: '150px',
+                  opacity: 1,
                   pointerEvents: 'none',
                   overflow: 'hidden',
                 }
           }
         >
-          {showTv && (
-            <div
-              onPointerDown={onPointerDownTv}
-              onPointerMove={onPointerMoveTv}
-              onPointerUp={onPointerUpTv}
+          <div
+            onPointerDown={onPointerDownTv}
+            onPointerMove={onPointerMoveTv}
+            onPointerUp={onPointerUpTv}
+            style={{
+              padding: '4px 8px',
+              background: '#1e293b',
+              color: '#34d399',
+              fontSize: '10px',
+              fontWeight: 800,
+              cursor: 'grab',
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              userSelect: 'none',
+            }}
+          >
+            <span>✥ DRAG YOUTUBE TV</span>
+            <button
+              type="button"
+              onClick={() => setShowTv(false)}
               style={{
-                padding: '5px 8px',
-                background: '#1e293b',
-                color: '#34d399',
+                background: 'none',
+                border: 'none',
+                color: '#cbd5e1',
                 fontSize: '10px',
                 fontWeight: 800,
-                cursor: 'grab',
-                display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'center',
-                userSelect: 'none',
               }}
+              title="Minimize TV (Audio keeps playing!)"
             >
-              <span>✥ DRAG TV ANYWHERE</span>
-              <button
-                type="button"
-                onClick={() => setShowTv(false)}
-                style={{ background: 'none', border: 'none', color: '#cbd5e1', fontSize: '11px' }}
-              >
-                ✕
-              </button>
-            </div>
-          )}
+              _ HIDE
+            </button>
+          </div>
+
           <iframe
-            key={`${activeVideoId}-${localMuted ? 'muted' : 'unmuted'}`}
-            width={showTv ? '232' : '1'}
-            height={showTv ? '130' : '1'}
+            ref={iframeRef}
+            key={activeVideoId}
+            width="216"
+            height="122"
             src={`https://www.youtube.com/embed/${encodeURIComponent(
               activeVideoId
-            )}?autoplay=1&loop=1&playlist=${encodeURIComponent(
-              activeVideoId
-            )}&controls=1&playsinline=1&mute=${localMuted ? 1 : 0}`}
+            )}?autoplay=1&enablejsapi=1&playsinline=1&controls=1&rel=0`}
             title={youtubeState?.title || 'YouTube TV'}
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            style={{ border: 0, display: 'block' }}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            onLoad={() => {
+              sendYouTubeCommand('playVideo');
+              if (localMuted) {
+                sendYouTubeCommand('mute');
+              } else {
+                sendYouTubeCommand('unMute');
+                sendYouTubeCommand('setVolume', [100]);
+              }
+            }}
+            style={{ border: 0, display: 'block', background: '#000' }}
           />
         </div>
       )}
@@ -252,7 +346,9 @@ export default function YouTubeMusicBar({
                 marginBottom: '10px',
               }}
             >
-              <strong style={{ color: '#34d399', fontSize: '15px' }}>🎵 ADMIN YOUTUBE DJ</strong>
+              <strong style={{ color: '#34d399', fontSize: '15px' }}>
+                🎵 ADMIN YOUTUBE DJ (PLAYS FOR ALL PLAYERS)
+              </strong>
               <button type="button" onClick={() => setDrawerOpen(false)} className="oa-icon-btn">
                 ✕
               </button>
@@ -268,7 +364,7 @@ export default function YouTubeMusicBar({
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Search YouTube song or paste URL..."
+                placeholder="Type any song name (e.g. Ben 10, Believer, Arijit) or paste YouTube URL..."
                 className="oa-input"
               />
               <button type="submit" disabled={searching} className="oa-btn oa-btn-primary mono">
@@ -280,7 +376,7 @@ export default function YouTubeMusicBar({
                 display: 'flex',
                 flexDirection: 'column',
                 gap: '8px',
-                maxHeight: '260px',
+                maxHeight: '280px',
                 overflowY: 'auto',
               }}
             >

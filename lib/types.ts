@@ -163,6 +163,7 @@ export interface RoomState {
   turnDurationSec: number;
   roundNumber: number;
   maxRounds: number;
+  totalDeckCards?: number;
   allowDuplicateCards: boolean;
   /**
    * Optional "Winner Steals Card" Survival Mode:

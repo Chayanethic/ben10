@@ -44,7 +44,7 @@ export default function MultiplayerPage() {
   const [displayName, setDisplayName] = useState<string>('Player 1');
   const [roomCodeInput, setRoomCodeInput] = useState<string>('');
   const [maxPlayersConfig, setMaxPlayersConfig] = useState<2 | 3 | 4>(2);
-  const [maxRoundsConfig, setMaxRoundsConfig] = useState<number>(5);
+  const [maxRoundsConfig, setMaxRoundsConfig] = useState<number>(24);
   // Optional "Winner Steals Card" Survival Mode toggle (Selectable when creating room or in Lobby)
   const [winnerStealsCardConfig, setWinnerStealsCardConfig] = useState<boolean>(true);
   const [selectedStarterId, setSelectedStarterId] = useState<string>(characters[0].id);
@@ -169,7 +169,7 @@ export default function MultiplayerPage() {
         playerId: uid,
         displayName: trimmed,
         maxPlayers: maxPlayersConfig,
-        maxRounds: maxRoundsConfig,
+        maxRounds: Math.max(2, Math.floor(maxRoundsConfig / maxPlayersConfig)),
         allowDuplicateCards: false,
         winnerStealsCardMode: winnerStealsCardConfig,
         useExtendedStats: false,
@@ -357,6 +357,8 @@ export default function MultiplayerPage() {
 
   const handleAdminChangeYouTube = async (nextYt: RoomYouTubeState | null) => {
     if (!room) return;
+    // Optimistically play immediately for Admin while syncing to all players in the room
+    setRoom((prev) => (prev ? { ...prev, youtubeState: nextYt } : prev));
     try {
       const res = await multiplayerClient.setYouTubeTrack({
         playerId,
@@ -463,11 +465,20 @@ export default function MultiplayerPage() {
             </button>
           )}
           {room && room.status !== 'lobby' && room.status !== 'ready_check' && (
-            <span className="oa-badge oa-badge-slim mono">
-              {room.winnerStealsCardMode
-                ? `R${room.roundNumber} • STEAL`
-                : `R${room.roundNumber}/${room.maxRounds}`}
-            </span>
+            <>
+              <span className="oa-badge oa-badge-slim mono" style={{ color: '#fde047' }}>
+                ROUND {room.roundNumber}
+              </span>
+              <span className="oa-badge oa-badge-slim mono" style={{ color: '#4ade80' }}>
+                🃏 {room.players[playerId]?.remainingCardsCount || 0}/
+                {room.totalDeckCards ||
+                  orderedPlayerIds.reduce(
+                    (sum, id) => sum + (room.players[id]?.remainingCardsCount || 0),
+                    0
+                  )}{' '}
+                CARDS
+              </span>
+            </>
           )}
         </div>
 
@@ -648,19 +659,20 @@ export default function MultiplayerPage() {
                     ))}
                   </div>
                 </div>
-                <div style={{ flex: 1 }}>
-                  <span className="mono" style={{ fontSize: '9px', color: '#94a3b8' }}>
-                    ROUNDS
+                <div style={{ flex: 1.4 }}>
+                  <span className="mono" style={{ fontSize: '9px', color: '#34d399' }}>
+                    TOTAL UNIQUE CARDS ({Math.floor(maxRoundsConfig / maxPlayersConfig)} EACH)
                   </span>
                   <div className="oa-option-row" style={{ marginTop: '3px' }}>
-                    {[3, 5, 7].map((r) => (
+                    {[12, 24, 36, 48, 60].map((totalC) => (
                       <button
-                        key={r}
+                        key={totalC}
                         type="button"
-                        onClick={() => setMaxRoundsConfig(r)}
-                        className={`oa-pill-btn mono ${maxRoundsConfig === r ? 'active' : ''}`}
+                        onClick={() => setMaxRoundsConfig(totalC)}
+                        className={`oa-pill-btn mono ${maxRoundsConfig === totalC ? 'active' : ''}`}
+                        title={`${totalC} Total Unique Cards ÷ ${maxPlayersConfig} Players = ${Math.floor(totalC / maxPlayersConfig)} Cards Each`}
                       >
-                        {r}R
+                        {totalC}🃏
                       </button>
                     ))}
                   </div>
@@ -736,9 +748,14 @@ export default function MultiplayerPage() {
               overflowY: 'auto',
             }}
           >
-            <span className="oa-badge mono">
-              PLAYERS IN LOBBY: {orderedPlayerIds.length} / {room.maxPlayers}
-            </span>
+            <div style={{ display: 'flex', justifyContent: 'center', gap: '6px', flexWrap: 'wrap' }}>
+              <span className="oa-badge mono">
+                PLAYERS IN LOBBY: {orderedPlayerIds.length} / {room.maxPlayers}
+              </span>
+              <span className="oa-badge mono" style={{ color: '#4ade80' }}>
+                🃏 100% UNIQUE DECK: {room.maxRounds * Math.max(2, orderedPlayerIds.length)} TOTAL ({room.maxRounds} CARDS EACH)
+              </span>
+            </div>
             <h2 style={{ fontSize: '22px', margin: '6px 0 4px' }}>
               ROOM CODE: <span style={{ color: '#34d399' }}>{room.roomCode}</span>
             </h2>
@@ -982,6 +999,14 @@ export default function MultiplayerPage() {
                     underdogBonus: comp?.underdogBonus || 0,
                   };
                 })}
+                roundNumber={room.roundNumber}
+                totalMatchCards={
+                  room.totalDeckCards ||
+                  orderedPlayerIds.reduce(
+                    (sum, id) => sum + (room.players[id]?.remainingCardsCount || 0),
+                    0
+                  )
+                }
                 isRoundResult={room.status === 'round_result'}
                 myActiveCard={myHand?.activeCard || null}
                 canSelectStat={

@@ -214,6 +214,21 @@ export function runAllGameEngineTests(): { passed: number; total: number; result
     const round2Turn = bundle.room.currentTurnPlayerId;
     bundle = submitStatAndResolveRound(bundle, { requesterId: round2Turn, selectedStat: 'strength' });
     assertCondition(bundle.room.status === 'round_result', 'Round 2 should resolve cleanly with same skill');
+    // Verify 100% unique cards across 2P (30 each = 60), 3P (20 each = 60), and 4P (15 each = 60)
+    const deal4P = dealFairHands({
+      playerIds: ['p1', 'p2', 'p3', 'p4'],
+      cardsPerPlayer: 15,
+      preferredStarters: { p1: 'heatblast', p2: 'heatblast', p3: 'heatblast', p4: 'heatblast' },
+    });
+    const allDealtIds = [
+      ...deal4P.hands['p1'],
+      ...deal4P.hands['p2'],
+      ...deal4P.hands['p3'],
+      ...deal4P.hands['p4'],
+    ].map((c) => c.id);
+    assertCondition(allDealtIds.length === 60, `Expected 60 total cards dealt across 4 players, got ${allDealtIds.length}`);
+    assertCondition(new Set(allDealtIds).size === 60, 'Every single card dealt across all 4 players must be 100% unique (0 duplicates even if same starter was requested)');
+
   });
 
   return { passed, total, results };

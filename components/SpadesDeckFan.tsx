@@ -24,6 +24,8 @@ export interface ArenaSeatPlayer {
 
 export interface SpadesFourSeatArenaProps {
   seats: ArenaSeatPlayer[];
+  roundNumber?: number;
+  totalMatchCards?: number;
   isRoundResult: boolean;
   myActiveCard: Alien | null;
   canSelectStat: boolean;
@@ -44,6 +46,7 @@ export interface SeatPlaqueProps {
   name: string;
   score: number;
   cardsCount: number;
+  totalMatchCards?: number;
   avatarAlienId?: string;
   isTurn?: boolean;
   isWinner?: boolean;
@@ -57,6 +60,7 @@ export function TableSeatPlaque({
   name,
   score,
   cardsCount,
+  totalMatchCards,
   avatarAlienId = 'heatblast',
   isTurn = false,
   isWinner = false,
@@ -114,24 +118,17 @@ export function TableSeatPlaque({
         <span className="s4-pill-name">{name}</span>
         <span className="s4-pill-score">
           ★{score} • 🃏{cardsCount}
+          {totalMatchCards ? `/${totalMatchCards}` : ''}
         </span>
       </div>
     </div>
   );
 }
 
-/**
- * 4-Corner / 4-Side Teen Patti & Spades Card Table (`SpadesFourSeatArena`):
- * - Pure, Simple Childhood Trump Card Rules (tap 1 of 6 skills -> highest number wins!)
- * - Smaller player card in bottom hand dock (`154px–168px`) with a large, prominent character portrait.
- * - Teen Patti-style "WHO TOOK THE CARDS" directional pot sweep:
- *   When a round resolves, a bright golden Teen Patti banner + directional arrow points to the
- *   exact winning seat (`bottom`, `top`, `left`, or `right`), the winner's seat lights up with
- *   a golden crown & `👑 TOOK +X CARDS!`, and all defeated cards in the center pot physically
- *   sweep directly into the winner's seat!
- */
 export function SpadesFourSeatArena({
   seats,
+  roundNumber = 1,
+  totalMatchCards,
   isRoundResult,
   myActiveCard,
   canSelectStat,
@@ -146,6 +143,10 @@ export function SpadesFourSeatArena({
     seats.findIndex((s) => s.isMe)
   );
   const rotated = [...seats.slice(meIndex), ...seats.slice(0, meIndex)];
+
+  const computedTotalCards =
+    totalMatchCards ||
+    rotated.reduce((sum, s) => sum + (s.cardsCount || 0), 0);
 
   const mySeat = rotated[0];
   const opponents = rotated.slice(1);
@@ -201,7 +202,6 @@ export function SpadesFourSeatArena({
       ? '➡'
       : '⚡';
 
-  // Teen Patti directional sweep: defeated cards fly directly toward the winning seat!
   const getSweepStateForSeat = (seat: ArenaSeatPlayer): CardSweepState => {
     if (!isRoundResult || !winnerPos) return 'none';
     if (seat.isWinner) return 'captured-winner';
@@ -220,6 +220,7 @@ export function SpadesFourSeatArena({
           name={topSeat.name}
           score={topSeat.score}
           cardsCount={topSeat.cardsCount}
+          totalMatchCards={computedTotalCards}
           avatarAlienId={topSeat.avatarAlienId}
           isTurn={topSeat.isTurn}
           isWinner={Boolean(isRoundResult && topSeat.isWinner)}
@@ -236,6 +237,7 @@ export function SpadesFourSeatArena({
           name={leftSeat.name}
           score={leftSeat.score}
           cardsCount={leftSeat.cardsCount}
+          totalMatchCards={computedTotalCards}
           avatarAlienId={leftSeat.avatarAlienId}
           isTurn={leftSeat.isTurn}
           isWinner={Boolean(isRoundResult && leftSeat.isWinner)}
@@ -252,6 +254,7 @@ export function SpadesFourSeatArena({
           name={rightSeat.name}
           score={rightSeat.score}
           cardsCount={rightSeat.cardsCount}
+          totalMatchCards={computedTotalCards}
           avatarAlienId={rightSeat.avatarAlienId}
           isTurn={rightSeat.isTurn}
           isWinner={Boolean(isRoundResult && rightSeat.isWinner)}
@@ -268,6 +271,7 @@ export function SpadesFourSeatArena({
           name={mySeat.name}
           score={mySeat.score}
           cardsCount={mySeat.cardsCount}
+          totalMatchCards={computedTotalCards}
           avatarAlienId={mySeat.avatarAlienId}
           isTurn={mySeat.isTurn}
           isWinner={Boolean(isRoundResult && mySeat.isWinner)}
@@ -281,12 +285,16 @@ export function SpadesFourSeatArena({
       <div className="s4-crimson-oval-table">
         <div className="s4-inner-felt-line" />
 
-        {/* Teen Patti Center Pot Chip at Top of Table Felt */}
+        {/* Teen Patti Center Pot Chip showing Round No + Your Cards / Total Cards in Play */}
         <div className="tp-center-pot-chip mono">
-          <span>🃏 TABLE POT: {rotated.length} CARDS</span>
+          <span>ROUND {roundNumber}</span>
+          <span>•</span>
+          <span>
+            🃏 YOUR CARDS: {mySeat?.cardsCount || 0}/{computedTotalCards}
+          </span>
           {selectedStat && (
             <span className="tp-pot-skill-tag">
-              ★ SKILL: {selectedStat.toUpperCase()}
+              ★ {selectedStat.toUpperCase()}
             </span>
           )}
         </div>
@@ -432,7 +440,7 @@ export function SpadesFourSeatArena({
           </div>
         )}
 
-        {/* Bottom Active Single-Card Hand Dock (Compact size with large character portrait!) */}
+        {/* Bottom Active Single-Card Hand Dock */}
         {!isRoundResult && myActiveCard && (
           <div className="s4-my-single-card-dock">
             <Card

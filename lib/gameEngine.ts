@@ -58,7 +58,6 @@ export function dealFairHands(params: {
   const {
     playerIds,
     cardsPerPlayer,
-    allowDuplicateCards = false,
     preferredStarters = {},
     pool = characters,
     rng = Math.random,
@@ -68,27 +67,29 @@ export function dealFairHands(params: {
     throw new Error('Invalid player count: must be 2, 3, or 4 players.');
   }
 
+  // Deduplicate pool by character ID and name so every single card in the match is 100% unique
+  const seenIds = new Set<string>();
+  const uniquePool: Alien[] = [];
+  for (const c of pool) {
+    if (!seenIds.has(c.id)) {
+      seenIds.add(c.id);
+      uniquePool.push(c);
+    }
+  }
+
+  // Maximum unique cards per player when dividing the deck equally among all players
+  const maxUniquePerPlayer = Math.floor(uniquePool.length / playerIds.length);
+  const effectiveCardsPerPlayer = Math.max(
+    1,
+    Math.min(cardsPerPlayer, maxUniquePerPlayer)
+  );
+
   const hands: Record<string, Alien[]> = {};
   playerIds.forEach((pid) => {
     hands[pid] = [];
   });
 
-  if (allowDuplicateCards) {
-    for (const pid of playerIds) {
-      const starterId = preferredStarters[pid];
-      const starterAlien = starterId ? pool.find((a) => a.id === starterId) : undefined;
-      if (starterAlien) {
-        hands[pid].push(starterAlien);
-      }
-      while (hands[pid].length < cardsPerPlayer) {
-        const idx = Math.floor(rng() * pool.length);
-        hands[pid].push(pool[idx]);
-      }
-    }
-    return { hands, drawPile: shuffleDeck(pool, rng) };
-  }
-
-  let available = shuffleDeck(pool, rng);
+  const available = shuffleDeck(uniquePool, rng);
   const usedIds = new Set<string>();
 
   for (const pid of playerIds) {
@@ -103,14 +104,18 @@ export function dealFairHands(params: {
     }
   }
 
-  for (let r = 0; r < cardsPerPlayer; r++) {
+  for (let r = 0; r < effectiveCardsPerPlayer; r++) {
     for (const pid of playerIds) {
       if (hands[pid].length > r) continue;
-      if (available.length === 0) {
-        available = shuffleDeck(pool, rng);
+      // Find next unused card so no two players EVER receive the same card
+      while (available.length > 0) {
+        const candidate = available.shift()!;
+        if (!usedIds.has(candidate.id)) {
+          usedIds.add(candidate.id);
+          hands[pid].push(candidate);
+          break;
+        }
       }
-      const nextCard = available.shift()!;
-      hands[pid].push(nextCard);
     }
   }
 
@@ -349,8 +354,8 @@ export function createInitialRoomBundle(params: {
   if (![2, 3, 4].includes(maxPlayers)) {
     throw new Error('Room size must be 2, 3, or 4 players.');
   }
-  if (maxRounds < 1 || maxRounds > 15) {
-    throw new Error('Max rounds must be between 1 and 15.');
+  if (maxRounds < 1 || maxRounds > 60) {
+    throw new Error('Max cards/rounds must be between 1 and 60.');
   }
 
   const roomCode = (params.roomCode || generateRoomCode(rng)).toUpperCase();
@@ -838,10 +843,18 @@ export function startMatch(
     preferredStarters[pid] = room.players[pid].selectedStarterAlienId;
   });
 
+  // If maxRounds was configured as a Total Deck Size (e.g. 24, 36, 48, 60) or exceeds per-player capacity,
+  // divide equally by activePlayerIds.length so total cards are split evenly across all players!
+  const maxPossiblePerPlayer = Math.floor(pool.length / activePlayerIds.length);
+  const cardsPerPlayer =
+    room.totalDeckCards && room.totalDeckCards >= activePlayerIds.length * 2
+      ? Math.min(maxPossiblePerPlayer, Math.floor(room.totalDeckCards / activePlayerIds.length))
+      : Math.min(maxPossiblePerPlayer, room.maxRounds);
+
   const { hands, drawPile } = dealFairHands({
     playerIds: activePlayerIds,
-    cardsPerPlayer: room.maxRounds,
-    allowDuplicateCards: room.allowDuplicateCards,
+    cardsPerPlayer,
+    allowDuplicateCards: false,
     preferredStarters,
     pool,
     rng,
@@ -873,6 +886,7 @@ export function startMatch(
       currentTurnPlayerId: firstTurnPlayerId,
       turnStartedAt: now,
       roundNumber: 1,
+      totalDeckCards: cardsPerPlayer * activePlayerIds.length,
       selectedStat: null,
       winnerId: null,
       lastRoundWinnerIds: [],

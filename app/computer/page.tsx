@@ -31,7 +31,7 @@ const QUICK_CHATS = ['🔥 GG!', '⚡ Too Fast!', '💪 Crush It!', '😎 My Tur
 
 export default function VSComputerPage() {
   const [difficulty, setDifficulty] = useState<CpuDifficulty>('normal');
-  const [maxRounds, setMaxRounds] = useState<number>(5);
+  const [maxRounds, setMaxRounds] = useState<number>(12);
   // Optional "Winner Steals Card" Survival Mode toggle
   const [winnerStealsCardMode, setWinnerStealsCardMode] = useState<boolean>(true);
   const [lockedStat, setLockedStat] = useState<StatKey | null>(null);
@@ -42,7 +42,7 @@ export default function VSComputerPage() {
 
   const initialHands = dealFairHands({
     playerIds: ['player', 'cpu'],
-    cardsPerPlayer: 5,
+    cardsPerPlayer: 12,
     allowDuplicateCards: false,
     preferredStarters: { player: characters[0].id, cpu: null },
   });
@@ -415,8 +415,11 @@ export default function VSComputerPage() {
           <span className="oa-brand-title" style={{ fontSize: '13px', color: '#34d399' }}>
             VS COMPUTER
           </span>
-          <span className="oa-badge mono">
-            {winnerStealsCardMode ? `R${round} • STEAL` : `R${round}/${maxRounds} • ${difficulty.toUpperCase()}`}
+          <span className="oa-badge oa-badge-slim mono" style={{ color: '#fde047' }}>
+            ROUND {round}
+          </span>
+          <span className="oa-badge oa-badge-slim mono" style={{ color: '#4ade80' }}>
+            🃏 {playerHand.length}/{playerHand.length + cpuHand.length} CARDS
           </span>
         </div>
 
@@ -538,18 +541,18 @@ export default function VSComputerPage() {
               </div>
 
               <div>
-                <span className="mono" style={{ fontSize: '10px', color: '#94a3b8' }}>
-                  2. ROUNDS / STARTING DECK
+                <span className="mono" style={{ fontSize: '10px', color: '#34d399' }}>
+                  2. TOTAL UNIQUE CARDS ({maxRounds} EACH / {maxRounds * 2} TOTAL)
                 </span>
                 <div className="oa-option-row" style={{ marginTop: '4px' }}>
-                  {[3, 5, 7].map((r) => (
+                  {[6, 12, 18, 24, 30].map((perPlr) => (
                     <button
-                      key={r}
+                      key={perPlr}
                       type="button"
-                      onClick={() => setMaxRounds(r)}
-                      className={`oa-pill-btn mono ${maxRounds === r ? 'active' : ''}`}
+                      onClick={() => setMaxRounds(perPlr)}
+                      className={`oa-pill-btn mono ${maxRounds === perPlr ? 'active' : ''}`}
                     >
-                      {r} CARDS
+                      {perPlr * 2}🃏 ({perPlr} EA)
                     </button>
                   ))}
                 </div>
@@ -742,6 +745,8 @@ export default function VSComputerPage() {
                       : 0,
                 },
               ]}
+              roundNumber={round}
+              totalMatchCards={playerHand.length + cpuHand.length}
               isRoundResult={phase === 'round_result'}
               myActiveCard={currentPlayerCard}
               canSelectStat={phase === 'playing' && currentTurn === 'player' && !isSubmitting}
