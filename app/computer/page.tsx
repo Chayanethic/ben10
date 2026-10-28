@@ -350,7 +350,7 @@ export default function VSComputerPage() {
       setPlayerHand(pCopy);
       setCpuHand(cCopy);
 
-      if (pCopy.length === 0 || cCopy.length === 0 || round >= maxRounds * 3) {
+      if (pCopy.length === 0 || cCopy.length === 0 || round >= 60) {
         setPhase('finished');
         return;
       }
@@ -410,13 +410,13 @@ export default function VSComputerPage() {
   return (
     <main className="oa-viewport-shell">
       {/* Structured Clean Top Bar with Corner Symbol Controls */}
-      <header className="oa-topbar">
+      <header className="oa-topbar oa-topbar-slim">
         <div className="oa-nav-group">
           <span className="oa-brand-title" style={{ fontSize: '13px', color: '#34d399' }}>
             VS COMPUTER
           </span>
           <span className="oa-badge mono">
-            R{round}/{maxRounds} • {winnerStealsCardMode ? 'STEAL MODE' : difficulty.toUpperCase()}
+            {winnerStealsCardMode ? `R${round} • STEAL` : `R${round}/${maxRounds} • ${difficulty.toUpperCase()}`}
           </span>
         </div>
 
@@ -683,19 +683,7 @@ export default function VSComputerPage() {
               )}
             </div>
 
-            {phase === 'round_result' && (
-              <div className="oa-winner-toast mono">
-                {roundWinner === 'player'
-                  ? `🏆 YOU WON ROUND ${round} WITH ${selectedStat?.toUpperCase()}${
-                      winnerStealsCardMode ? ' & STOLE CPU CARD!' : '!'
-                    }`
-                  : roundWinner === 'cpu'
-                  ? `⚡ CPU WON ROUND ${round} WITH ${selectedStat?.toUpperCase()}${
-                      winnerStealsCardMode ? ' & STOLE YOUR CARD!' : '!'
-                    }`
-                  : `🤝 ROUND ${round} TIED ON ${selectedStat?.toUpperCase()}!`}
-              </div>
-            )}
+
 
             <SpadesFourSeatArena
               seats={[

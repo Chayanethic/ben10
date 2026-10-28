@@ -447,20 +447,26 @@ export default function MultiplayerPage() {
   return (
     <main className="oa-viewport-shell">
       {/* Structured Clean Top Bar with Right-Side Corner Symbol Controls (▦, ✕) */}
-      <header className="oa-topbar">
-        <div className="oa-nav-group">
-          <span className="oa-brand-title" style={{ fontSize: '13px', color: '#34d399' }}>
-            OMNITRIX TABLE
+      <header className="oa-topbar oa-topbar-slim">
+        <div className="oa-nav-group oa-nav-nowrap">
+          <span className="oa-brand-title oa-brand-compact">
+            {room ? '⚡' : 'OMNITRIX TABLE'}
           </span>
           {room && (
-            <button type="button" onClick={copyRoomCode} className="oa-badge mono">
-              CODE: {room.roomCode} {copiedCode ? '✓' : '📋'}
+            <button
+              type="button"
+              onClick={copyRoomCode}
+              className="oa-badge oa-badge-slim mono"
+              title="Tap to copy Room Code"
+            >
+              #{room.roomCode} {copiedCode ? '✓' : '📋'}
             </button>
           )}
           {room && room.status !== 'lobby' && room.status !== 'ready_check' && (
-            <span className="oa-badge mono">
-              R{room.roundNumber}/{room.maxRounds} •{' '}
-              {room.winnerStealsCardMode ? 'STEAL MODE' : 'POINTS MODE'}
+            <span className="oa-badge oa-badge-slim mono">
+              {room.winnerStealsCardMode
+                ? `R${room.roundNumber} • STEAL`
+                : `R${room.roundNumber}/${room.maxRounds}`}
             </span>
           )}
         </div>
@@ -937,17 +943,7 @@ export default function MultiplayerPage() {
                 )}
               </div>
 
-              {room.status === 'round_result' && (
-                <div className="oa-winner-toast mono">
-                  {room.lastRoundTie
-                    ? `⚡ ROUND ${room.roundNumber} TIED ON ${room.selectedStat?.toUpperCase()}!`
-                    : `🏆 ${roundWinnerName?.toUpperCase()} WON THIS ROUND WITH ${room.selectedStat?.toUpperCase()}${
-                        room.winnerStealsCardMode && (room.lastRoundStolenCount || 0) > 0
-                          ? ` & STOLE ${room.lastRoundStolenCount} CARD(S)!`
-                          : '!'
-                      }`}
-                </div>
-              )}
+
 
               <SpadesFourSeatArena
                 seats={orderedPlayerIds.map((pid) => {

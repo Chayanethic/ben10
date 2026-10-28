@@ -95,5 +95,3 @@ Enable Firebase Anonymous Authentication and deploy `firestore.rules`. The inclu
 - `/multiplayer` opens the multiplayer room/lobby and live-match screen only.
 - Both gameplay routes include a Back to Modes link. Responsive styles reduce scrolling and prioritize fitting the battle UI to the viewport.
 - This is a UI/routing update; it does not remove Firebase setup requirements or turn the client-side multiplayer starter into a server-authoritative game.
-#   b e n 1 0  
- 

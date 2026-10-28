@@ -216,15 +216,15 @@ export default function Card({
 
   return (
     <div className={cardStateClass} data-testid={`alien-card-${targetAlien.id}`}>
-      {/* Teen Patti Stamp Overlay showing clearly WHO took this card */}
+      {/* Top Badge showing Winner or Taken By on Table-Matched Cards (placed at top so it never covers skills!) */}
       {isLoser && takenByWinnerName && (
         <div className="tp-card-taken-stamp">
-          🃏 TAKEN BY {takenByWinnerName.toUpperCase()}!
+          → {takenByWinnerName.toUpperCase()}
         </div>
       )}
       {isWinner && tableThrown && (
         <div className="tp-card-winner-crown">
-          👑 WINNER TAKES POT!
+          👑 WINNER!
         </div>
       )}
 
@@ -252,7 +252,7 @@ export default function Card({
           </div>
         </div>
 
-        {/* LARGE Character Portrait Window (takes >50% of card height!) */}
+        {/* Character Portrait Window */}
         <div className="b10-art-window b10-art-hero">
           <div className="b10-side-vent b10-vent-left" />
           <div className="b10-art-inner">
@@ -278,7 +278,7 @@ export default function Card({
           <span className="b10-ribbon-title">{targetAlien.name}</span>
         </div>
 
-        {/* Pure, Simple Childhood 6-Skill Grid (Tap a skill -> Highest number wins!) */}
+        {/* Pure, Simple Childhood 6-Skill Grid — Full Skill Names Always 100% Readable! */}
         <div className="b10-stats-belly">
           <div className="b10-skills-grid-6">
             {sixSkills.map((meta) => {
@@ -300,9 +300,8 @@ export default function Card({
                     isWinningBox || isChosen ? 'b10-stat-selected' : ''
                   } ${canInteract ? 'b10-stat-clickable' : ''}`}
                 >
-                  <span className="b10-stat-star">★</span>
+                  {!tableThrown && <span className="b10-stat-star">★</span>}
                   <span className="b10-stat-name">{shortLabel}</span>
-                  <span className="b10-stat-colon">:</span>
                   <span className="b10-stat-val">{val}</span>
                 </button>
               );

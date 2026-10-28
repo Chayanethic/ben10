@@ -1112,7 +1112,7 @@ export function advanceToNextRound(
     );
 
     // Match ends when 1 player holds all cards (others have 0 cards left) or maxRounds safety cap is reached
-    if (playersStillHoldingCards.length <= 1 || room.roundNumber >= room.maxRounds * 3) {
+    if (playersStillHoldingCards.length <= 1 || room.roundNumber >= 60) {
       const matchWinnerId =
         playersStillHoldingCards[0] ||
         [...activePlayerIds].sort(
