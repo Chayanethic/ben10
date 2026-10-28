@@ -1,0 +1,38 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() {
+      return request.auth != null;
+    }
+
+    match /characters/{characterId} {
+      allow read: if true;
+      allow write: if false;
+    }
+
+    match /alienImages/{imageId} {
+      allow read: if true;
+      allow write: if false;
+    }
+
+    match /rooms/{roomId} {
+      allow read: if signedIn();
+      allow create: if signedIn()
+        && (request.resource.data.hostId == request.auth.uid || request.resource.data.hostUid == request.auth.uid)
+        && request.resource.data.status == 'lobby';
+      allow update: if signedIn()
+        && (resource.data.status == 'lobby' || resource.data.status == 'ready_check')
+        && (request.resource.data.status == 'lobby' || request.resource.data.status == 'ready_check');
+      allow delete: if false;
+
+      match /privateHands/{playerId} {
+        allow read: if signedIn() && request.auth.uid == playerId;
+        allow write: if false;
+      }
+
+      match /serverSecrets/{secretDocId} {
+        allow read, write: if false;
+      }
+    }
+  }
+}

@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Omnitrix Trump — Arena</title>
+<style>
+:root{--lime:#baff39;--green:#244f31;--ink:#07110b;--cream:#fff6d9;--red:#ed5148;--gold:#e8bd5e}
+*{box-sizing:border-box}body{margin:0;color:#f8f6e9;background:#08100b;font:14px/1.4 Inter,system-ui,Segoe UI,sans-serif;min-height:100vh}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;background:radial-gradient(ellipse at 50% 0%,#3b71422b,transparent 58%),repeating-linear-gradient(135deg,#ffffff03 0 1px,transparent 1px 7px)}
+button{font:inherit;cursor:pointer}button:focus-visible{outline:2px solid var(--lime);outline-offset:3px}
+header{height:70px;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(14px,4vw,54px);background:#060b08e8;border-bottom:1px solid #2d4633;position:sticky;top:0;z-index:10;backdrop-filter:blur(14px)}
+.brand{display:flex;align-items:center;gap:11px;font-weight:1000;letter-spacing:.12em}.omni{height:38px;width:38px;border:3px solid var(--lime);border-radius:50%;display:grid;place-items:center;color:var(--lime);font-size:22px;box-shadow:0 0 20px #baff3930}.brand small{display:block;font-size:9px;letter-spacing:.24em;color:#91a38d}.hdr{display:flex;gap:9px;align-items:center}.chip{border:1px solid #344b37;background:#111d14;border-radius:99px;padding:8px 12px;font-size:11px;color:#b5c4b2}.chip b{color:var(--lime)}
+main{max-width:1240px;margin:auto;padding:25px clamp(12px,3vw,36px) 48px}.topline{display:flex;justify-content:space-between;align-items:end;gap:18px;margin-bottom:19px}.eyebrow{font-size:10px;font-weight:950;letter-spacing:.24em;color:var(--lime);text-transform:uppercase}.topline h1{font-size:clamp(27px,4vw,45px);letter-spacing:-.055em;line-height:1;margin:7px 0}.topline p{color:#9aab98;margin:0;font-size:12px}.smallbtn{border:1px solid #3c553e;background:#15251a;color:#e7efd9;padding:10px 13px;border-radius:9px;font-weight:800}.smallbtn:hover{border-color:var(--lime)}
+.stage{position:relative;overflow:hidden;border:1px solid #34583b;border-radius:24px;background:radial-gradient(ellipse at 50% 44%,#24492d,#12271a 48%,#09150d 100%);box-shadow:0 24px 80px #0008,inset 0 0 50px #0005;padding:22px 22px 18px}
+.stage:before{content:"";position:absolute;inset:13px;border:1px solid #9ec86c25;border-radius:17px;pointer-events:none}
+.stagehead{display:flex;justify-content:space-between;align-items:center;position:relative;z-index:1;gap:10px}.stagehead strong{font-size:11px;letter-spacing:.18em}.live{color:#c7e4ad;font-size:10px;letter-spacing:.12em}.dot{display:inline-block;width:7px;height:7px;background:var(--lime);border-radius:50%;margin-right:6px;box-shadow:0 0 12px var(--lime)}
+.table{position:relative;display:grid;grid-template-columns:minmax(0,1fr) 100px minmax(0,1fr);gap:18px;align-items:center;padding:22px 2px 12px;min-height:420px}.playerzone{min-width:0}.zonehead{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;color:#d8e4ce;font-size:10px;font-weight:950;letter-spacing:.14em}.zonehead .who{color:var(--lime)}.zonehead .cpu{color:#ffb6a7}
+.playing-card{width:min(100%,290px);margin:auto;position:relative;aspect-ratio: .69;max-height:390px;perspective:1000px;filter:drop-shadow(0 15px 16px #0008);transition:transform .4s,filter .4s}.cardinner{position:absolute;inset:0;transform-style:preserve-3d;transition:transform .75s cubic-bezier(.2,.8,.2,1)}.playing-card.revealed .cardinner{transform:rotateY(180deg)}.face,.back{position:absolute;inset:0;backface-visibility:hidden;border-radius:13px;border:5px solid #f5e9c7;outline:1px solid #9e8a5b;overflow:hidden}.face{transform:rotateY(180deg);color:#191b12;background:#f5edcf;padding:8px;display:flex;flex-direction:column;box-shadow:inset 0 0 0 1px #bba56e}.face:before{content:"";position:absolute;inset:4px;border:1px solid #d4c38e;pointer-events:none}.facehead{display:flex;justify-content:space-between;align-items:center;position:relative;z-index:1;font-family:Georgia,serif;font-weight:bold;font-size:17px}.facehead small{font:900 8px system-ui;letter-spacing:.1em;color:#49613c}.portrait{position:relative;flex:1;min-height:100px;margin:7px 0 5px;border:2px solid #7b9256;border-radius:5px;overflow:hidden;display:grid;place-items:center;background:radial-gradient(circle at 50% 40%,var(--glow,#a6cc7d),#18291b 82%)}.portrait.hasimg .fallback{opacity:0}.portrait img{position:absolute;width:100%;height:100%;object-fit:contain;object-position:center bottom;z-index:2;filter:drop-shadow(0 5px 5px #0007);padding:3px}.portrait .fallback{position:relative;z-index:1;font-size:clamp(50px,7vw,86px);filter:drop-shadow(0 6px 5px #0009)}.cardname{position:relative;z-index:1;text-align:center;font-weight:1000;font-size:clamp(13px,1.5vw,19px);line-height:1.05;text-transform:uppercase;color:#172315}.species{font-size:8px;text-align:center;color:#5c6b4f;margin:3px 0 5px;position:relative;z-index:1}.stats{display:grid;grid-template-columns:1fr 1fr;gap:4px;position:relative;z-index:1}.stat{background:#e5dfbd;border:1px solid #b8b18d;border-radius:3px;padding:4px 5px}.statline{display:flex;justify-content:space-between;gap:2px;font-size:8px;font-weight:900;text-transform:uppercase;color:#46533d}.statline b{font-size:11px;color:#162416}.ability{font-size:8px;text-align:center;color:#57634a;padding:5px 0 1px;position:relative;z-index:1;min-height:21px}.suit{font-size:16px}.back{background:#e7e1c8;display:grid;place-items:center}.backframe{position:absolute;inset:7px;border:2px solid #f8f0d5;border-radius:7px;background:repeating-linear-gradient(45deg,#214e2b 0 6px,#173a21 6px 12px);display:grid;place-items:center}.backframe:before{content:"";position:absolute;inset:8px;border:2px solid #baff39;border-radius:50%;box-shadow:0 0 0 7px #baff3918}.backlogo{position:relative;z-index:1;width:75px;height:75px;border:5px solid #baff39;border-radius:50%;display:grid;place-items:center;color:#baff39;font-size:45px;text-shadow:0 0 14px #baff39;box-shadow:0 0 20px #baff3944}.backtext{position:absolute;bottom:19px;color:#eaffcc;font-size:9px;letter-spacing:.22em;font-weight:1000}.cardcorner{position:absolute;top:7px;left:8px;z-index:3;font:bold 15px Georgia;color:#d8292c;text-shadow:0 1px #fff}.cardcorner.bottom{top:auto;left:auto;right:8px;bottom:7px;transform:rotate(180deg)}
+.playing-card.deal{animation:deal .75s cubic-bezier(.2,.8,.2,1) both}.playing-card.shuffling{animation:shuffle .65s ease-in-out 3}.playing-card.win{transform:translateY(-10px) scale(1.025);filter:drop-shadow(0 0 18px #baff3980)}.playing-card.lose{filter:grayscale(.5) brightness(.75)}@keyframes deal{0%{opacity:0;transform:translateY(-55px) rotate(10deg) scale(.78)}55%{opacity:1;transform:translateY(6px) rotate(-3deg) scale(1.02)}78%{transform:translateY(-2px) rotate(1deg)}100%{transform:translateY(0) rotate(0)}}@keyframes shuffle{0%,100%{transform:translateX(0) rotate(0)}25%{transform:translateX(-8px) rotate(-3deg)}50%{transform:translateX(7px) rotate(3deg)}75%{transform:translateX(-4px) rotate(-2deg)}}
+.mid{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;text-align:center;position:relative;z-index:1}.vs{height:64px;width:64px;display:grid;place-items:center;border-radius:50%;border:2px solid #a2c866;background:radial-gradient(circle,#294b2a,#0b170d);box-shadow:0 0 0 6px #baff3910,0 0 25px #baff3920;color:var(--lime);font-size:22px;font-weight:1000;font-style:italic}.roundlabel{font-size:9px;letter-spacing:.2em;color:#b5c9a8;font-weight:900}.scores{display:flex;gap:7px}.score{padding:8px 10px;background:#09160c8c;border:1px solid #3d5a3b;border-radius:8px;min-width:47px}.score small{display:block;color:#a2b79b;font-size:8px;letter-spacing:.1em}.score b{font-size:20px;color:#f7f4de}.message{font-size:10px;color:#b9c9b0;min-height:34px;max-width:110px}
+.controls{position:relative;z-index:1;border-top:1px solid #8eaf6b35;padding-top:16px;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}.controltext strong{font-size:13px;display:block}.controltext span{font-size:10px;color:#9db197}.statsbuttons{display:flex;gap:6px;flex-wrap:wrap}.statbtn{background:#0d1b10;border:1px solid #496143;color:#dbe8cd;border-radius:7px;padding:9px 12px;font-size:10px;font-weight:900;transition:.2s}.statbtn:hover{border-color:var(--lime);transform:translateY(-2px)}.statbtn.active{background:var(--lime);border-color:var(--lime);color:#13200d}.primary{background:var(--lime);color:#111b0c;border:0;border-radius:8px;padding:12px 17px;font-size:11px;font-weight:1000;letter-spacing:.04em;box-shadow:0 5px 20px #baff3918}.primary:disabled{opacity:.4;cursor:not-allowed}.primary:hover:not(:disabled){filter:brightness(1.08);transform:translateY(-1px)}
+.deckbar{margin-top:14px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}.deckinfo{border:1px solid #263d2c;background:#0b170e;border-radius:10px;padding:11px 13px;display:flex;justify-content:space-between;align-items:center;color:#9db09a;font-size:10px}.deckinfo b{color:#f5f3e5;font-size:15px}.deckinfo span{display:block;font-size:8px;letter-spacing:.12em;color:#7e967b}.progress{height:3px;background:#203a26;margin-top:6px;border-radius:4px;overflow:hidden}.progress i{display:block;height:100%;width:0;background:var(--lime);transition:width .4s}
+.intro{position:fixed;inset:0;z-index:50;background:radial-gradient(ellipse at center,#24452b,#07100a 72%);display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;transition:opacity .5s,visibility .5s}.intro.hide{opacity:0;visibility:hidden;pointer-events:none}.introcontent{max-width:560px}.intrologo{width:100px;height:100px;margin:0 auto 24px;border:5px solid var(--lime);border-radius:50%;display:grid;place-items:center;color:var(--lime);font-size:58px;box-shadow:0 0 50px #baff3930, inset 0 0 25px #baff3915}.intro h1{font-size:clamp(38px,7vw,70px);line-height:.9;letter-spacing:-.06em;margin:0 0 15px}.intro h1 span{color:var(--lime)}.intro p{color:#a8bda6;max-width:420px;margin:0 auto 25px}.intro .primary{padding:15px 24px;font-size:13px}.intro small{display:block;color:#718a70;font-size:9px;letter-spacing:.12em;margin-top:18px}
+.toast{position:fixed;top:85px;left:50%;transform:translate(-50%,-15px);opacity:0;z-index:30;background:var(--lime);color:#101a0d;padding:11px 18px;border-radius:99px;font-weight:1000;font-size:12px;pointer-events:none;transition:.25s;white-space:nowrap}.toast.show{opacity:1;transform:translate(-50%,0)}
+.collection{display:none}.collection.show{display:block}.collection h2{font-size:30px;margin:5px 0}.collection p{color:#9eb09a}.grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}.mini{background:#f3e9c9;color:#1a2818;border-radius:9px;border:3px solid #d2bd83;padding:8px;position:relative;overflow:hidden}.mini .portrait{height:145px;flex:none;margin:7px 0}.mini .cardname{font-size:14px}.mini .stats{margin-top:7px}.mini .statline{font-size:7px}
+footer{max-width:1240px;margin:auto;padding:0 30px 24px;color:#667d65;font-size:9px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+@media(max-width:760px){.stage{padding:16px 12px}.table{grid-template-columns:minmax(0,1fr);gap:10px;min-height:0;padding:18px 0}.playerzone{width:100%}.zonehead{max-width:430px;margin:0 auto 7px}.playing-card{width:min(100%,430px);aspect-ratio:1.48;max-height:none}.face,.back{border-width:4px;padding:7px}.face{display:flex;flex-direction:column}.portrait{position:absolute;left:20%;top:12%;bottom:12%;width:35%;height:auto;margin:0;min-height:0}.portrait img{object-fit:contain}.facehead{font-size:14px}.facehead small{font-size:7px}.cardname{position:absolute;left:58%;right:5%;top:24%;font-size:clamp(13px,3vw,19px);text-align:left}.species{position:absolute;left:58%;right:5%;top:36%;font-size:8px;text-align:left}.stats{position:absolute;left:58%;right:5%;top:44%;grid-template-columns:1fr;gap:3px}.stat{padding:3px 5px}.statline{font-size:8px}.statline b{font-size:10px}.ability{position:absolute;left:58%;right:5%;bottom:6%;font-size:7px;min-height:0;text-align:left}.cardcorner.bottom{display:none}.backframe{inset:6px}.backframe:before{inset:8px}.backlogo{width:60px;height:60px;font-size:36px}.backtext{bottom:12px}.mid{display:flex;flex-direction:row;gap:12px;justify-content:center;align-items:center;padding:1px 0}.vs{width:40px;height:40px;font-size:16px;flex:none}.roundlabel{font-size:9px}.message{font-size:9px;max-width:150px;min-height:0}.scores{gap:5px}.score{padding:5px 8px;min-width:38px}.score b{font-size:15px}.deckbar{gap:5px}.deckinfo{padding:8px;font-size:8px}.deckinfo b{font-size:12px}.controls{justify-content:center}.controltext{width:100%;text-align:center}.statsbuttons{justify-content:center}.primary{flex:1}.grid{grid-template-columns:repeat(3,1fr)}.hdr .chip:first-child{display:none}}
+@media(max-width:450px){.table{gap:8px}.playing-card{aspect-ratio:1.42}.face,.back{border-width:3px;padding:5px}.portrait{left:17%;width:38%;top:13%;bottom:13%}.facehead{font-size:12px}.facehead small{font-size:6px}.cardname{left:57%;top:22%;font-size:13px}.species{left:57%;top:34%;font-size:6px}.stats{left:57%;top:41%;right:4%;gap:2px}.stat{padding:2px 4px}.statline{font-size:7px}.statline b{font-size:9px}.ability{left:57%;right:4%;bottom:5%;font-size:6px}.backlogo{width:48px;height:48px;font-size:30px}.backtext{font-size:7px}.mid{gap:8px}.scores{gap:4px}.score{min-width:34px;padding:4px 6px}.score b{font-size:14px}.message{max-width:115px}.deckinfo span{font-size:7px}.grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:450px){header{height:60px}.brand{font-size:12px}.omni{width:33px;height:33px}.hdr .chip{padding:7px 9px;font-size:9px}.topline{align-items:start}.topline p{max-width:260px}.topline .smallbtn{font-size:10px;padding:9px}.zonehead{font-size:8px;letter-spacing:.08em}.playing-card{aspect-ratio:.61}.portrait{min-height:72px}.portrait .fallback{font-size:48px}.backlogo{width:55px;height:55px;font-size:34px}.backtext{font-size:7px;bottom:15px}.statbtn{padding:8px 9px}.deckinfo span{font-size:7px}.grid{grid-template-columns:repeat(2,1fr)}}
+
+/* Compact mobile battle HUD: both cards, VS, stats and action fit a phone screen */
+@media(max-width:600px){
+  header{height:48px;padding:0 10px}
+  .omni{width:29px;height:29px;font-size:17px;border-width:2px}
+  .brand{gap:7px;font-size:10px;letter-spacing:.08em}
+  .brand small{font-size:7px;letter-spacing:.15em}
+  .hdr .chip{padding:5px 7px;font-size:8px}
+  main{padding:8px 8px 12px}
+  .topline{margin:0 0 7px;align-items:center;gap:6px}
+  .topline .eyebrow{font-size:8px;letter-spacing:.14em}
+  .topline h1{font-size:21px;margin:3px 0}
+  .topline p{font-size:9px;line-height:1.2}
+  .topline .smallbtn{padding:7px 8px;font-size:9px}
+  #collectionBtn{display:none}
+  .stage{padding:9px 8px 8px;border-radius:14px}
+  .stage:before{inset:5px;border-radius:10px}
+  .stagehead{font-size:8px}
+  .stagehead strong{font-size:8px}
+  .live{font-size:7px}
+  .table{gap:4px;padding:7px 0 5px}
+  .zonehead{font-size:8px;margin-bottom:3px;max-width:100%;letter-spacing:.09em}
+  .playing-card{width:min(100%,420px);aspect-ratio:1.95;max-height:none}
+  .face,.back{border-width:3px;padding:4px;border-radius:9px}
+  .facehead{font-size:11px}
+  .facehead small{font-size:5px}
+  .portrait{left:14%;width:39%;top:12%;bottom:12%}
+  .portrait .fallback{font-size:clamp(34px,10vw,54px)}
+  .cardname{left:55%;top:20%;right:3%;font-size:clamp(11px,3.2vw,15px)}
+  .species{left:55%;top:33%;right:3%;font-size:6px;line-height:1.1}
+  .stats{left:55%;top:41%;right:3%;gap:2px}
+  .stat{padding:2px 3px;border-radius:2px}
+  .statline{font-size:6px;line-height:1.1}
+  .statline b{font-size:8px}
+  .ability{left:55%;right:3%;bottom:4%;font-size:5px;line-height:1.1}
+  .backframe{inset:4px;border-width:1px}
+  .backframe:before{inset:5px;box-shadow:0 0 0 4px #baff3918}
+  .backlogo{width:40px;height:40px;font-size:26px;border-width:3px}
+  .backtext{bottom:7px;font-size:6px}
+  .mid{gap:7px;padding:0}
+  .roundlabel{font-size:7px;letter-spacing:.1em}
+  .vs{width:29px;height:29px;font-size:12px;border-width:1px;box-shadow:0 0 0 3px #baff3910}
+  .scores{gap:3px}
+  .score{min-width:29px;padding:3px 5px;border-radius:5px}
+  .score small{font-size:6px}
+  .score b{font-size:12px}
+  .message{font-size:7px;max-width:100px;min-height:0;line-height:1.2}
+  .controls{padding-top:7px;gap:6px}
+  .controltext{width:100%;text-align:center}
+  .controltext strong{font-size:9px}
+  .controltext span{font-size:7px}
+  .statsbuttons{gap:4px;width:100%;justify-content:center}
+  .statbtn{padding:7px 8px;font-size:8px;flex:1}
+  .controls .primary{width:100%;flex:none;padding:9px 10px;font-size:9px}
+  .deckbar,footer{display:none}
+}
+@media(max-width:380px){
+  .topline h1{font-size:18px}
+  .topline p{max-width:220px}
+  .playing-card{aspect-ratio:1.85}
+  .portrait{left:12%;width:40%}
+  .cardname{left:53%;font-size:10px}
+  .species{left:53%;font-size:5px}
+  .stats{left:53%}
+  .ability{left:53%;font-size:4.5px}
+  .statline{font-size:5.5px}
+  .statline b{font-size:7px}
+  .mid{gap:5px}
+}
+
+
+/* Final phone layout: preserve all card information while fitting the duel into one viewport */
+@media(max-width:600px){
+  html,body{min-height:100%;overflow-x:hidden}
+  header{height:44px;padding:0 8px}
+  .omni{width:27px;height:27px;font-size:16px}
+  .brand{gap:6px;font-size:9px}
+  .brand small{font-size:6px}
+  .hdr .chip{padding:4px 6px;font-size:7px}
+  main{padding:5px 6px 8px}
+  .topline{margin:0 0 5px;align-items:center}
+  .topline .eyebrow{font-size:7px}
+  .topline h1{font-size:17px;margin:2px 0}
+  .topline p{display:none}
+  .topline .smallbtn{padding:7px 9px;min-height:34px;font-size:9px}
+  #collectionBtn{display:none}
+  .stage{padding:7px 6px 7px;border-radius:12px}
+  .stage:before{inset:4px;border-radius:9px}
+  .stagehead{margin-bottom:1px}
+  .stagehead strong{font-size:7px}
+  .live{font-size:6px}
+  .dot{width:5px;height:5px;margin-right:3px}
+  .table{display:grid;grid-template-columns:minmax(0,1fr);gap:2px;padding:4px 0 3px;min-height:0}
+  .playerzone{width:100%;min-width:0}
+  .zonehead{max-width:none;margin:0 2px 2px;font-size:7px;letter-spacing:.08em}
+  .playing-card{width:100%;max-width:390px;margin:0 auto;height:clamp(128px,calc((100svh - 350px)/2),174px);aspect-ratio:auto;max-height:none}
+  .face,.back{border-width:3px;border-radius:8px;padding:4px}
+  .facehead{font-size:10px;line-height:1}
+  .facehead small{font-size:5px}
+  .portrait{left:13%;width:39%;top:12%;bottom:12%;border-width:1px}
+  .portrait img{padding:1px;object-fit:contain;object-position:center}
+  .portrait .fallback{font-size:clamp(34px,9vw,52px)}
+  .cardname{left:54%;right:3%;top:20%;font-size:clamp(10px,3vw,14px);line-height:1.05}
+  .species{left:54%;right:3%;top:32%;font-size:6px;line-height:1.05;margin:0}
+  .stats{left:54%;right:3%;top:41%;grid-template-columns:1fr;gap:2px}
+  .stat{padding:2px 3px;border-radius:2px}
+  .statline{font-size:6px;line-height:1.05}
+  .statline b{font-size:8px;line-height:1}
+  .statline+div{margin-top:2px!important}
+  .ability{left:54%;right:3%;bottom:3%;font-size:5px;line-height:1.05;max-height:18px;overflow:hidden;padding:1px 0 0}
+  .cardcorner.bottom{display:none}
+  .backframe{inset:4px;border-width:1px}
+  .backframe:before{inset:4px;box-shadow:0 0 0 3px #baff3918}
+  .backlogo{width:38px;height:38px;font-size:24px;border-width:3px}
+  .backtext{bottom:6px;font-size:5px}
+  .mid{display:flex;flex-direction:row;align-items:center;justify-content:center;gap:7px;padding:2px 0}
+  .roundlabel{font-size:6px;letter-spacing:.08em}
+  .vs{width:25px;height:25px;font-size:10px;box-shadow:0 0 0 2px #baff3910}
+  .scores{gap:3px}
+  .score{min-width:28px;padding:2px 5px;border-radius:4px}
+  .score small{font-size:5px}
+  .score b{font-size:11px}
+  .message{font-size:6px;line-height:1.1;max-width:100px;min-height:0}
+  .controls{padding-top:5px;gap:5px}
+  .controltext{width:100%;text-align:center}
+  .controltext strong{font-size:8px;line-height:1.1}
+  .controltext span{font-size:6px;line-height:1.1}
+  .statsbuttons{width:100%;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px}
+  .statbtn{min-height:36px;padding:6px 2px;font-size:8px;line-height:1.05;border-radius:6px}
+  .controls .primary{width:100%;min-height:36px;flex:none;padding:7px 8px;font-size:9px;border-radius:6px}
+  .deckbar,footer{display:none}
+}
+@media(max-width:390px){
+  .playing-card{height:clamp(120px,calc((100svh - 345px)/2),156px)}
+  .cardname{font-size:10px}
+  .species{font-size:5px}
+  .statline{font-size:5.5px}
+  .statline b{font-size:7px}
+  .ability{font-size:4.5px}
+  .controls .primary,.statbtn{min-height:34px}
+}
+@media(max-height:650px) and (max-width:600px){
+  .topline h1{font-size:15px}
+  .stage{padding-top:5px;padding-bottom:5px}
+  .playing-card{height:clamp(112px,calc((100svh - 330px)/2),145px)}
+  .table{gap:1px;padding:2px 0}
+  .zonehead{margin-bottom:1px}
+  .controls{padding-top:3px;gap:3px}
+  .controltext span{display:none}
+  .statbtn,.controls .primary{min-height:31px}
+}
+
+
+/* Trading-card styling inspired by the supplied Heatblast reference */
+.face,.mini{background:linear-gradient(145deg,#8e332d 0%,#d66a4c 12%,#f1d6a0 13%,#f5edcf 16%,#f5edcf 84%,#9c3c32 85%,#5d201f 100%);border-color:#e2c9a0;box-shadow:inset 0 0 0 3px #77312b,inset 0 0 0 5px #e4b36d}
+.portrait{border:3px solid #b7a16c;border-radius:0;background:radial-gradient(circle at 50% 40%,var(--glow,#a6cc7d),#111b16 83%);box-shadow:inset 0 0 24px #0008}
+.portrait:after{content:"";position:absolute;inset:0;z-index:3;pointer-events:none;background:linear-gradient(110deg,transparent 25%,#ffffff20 48%,transparent 62%);transform:translateX(-120%);animation:omniScan 2.8s ease-in-out infinite}
+.portrait img{animation:alienReveal .65s cubic-bezier(.2,.8,.2,1) both}
+.portrait.hasimg .fallback{display:none}
+@keyframes omniScan{0%,25%{transform:translateX(-120%)}70%,100%{transform:translateX(120%)}}
+@keyframes alienReveal{0%{opacity:0;transform:scale(.72);filter:brightness(2.4) drop-shadow(0 0 18px #baff39)}65%{opacity:1;transform:scale(1.04);filter:brightness(1.25) drop-shadow(0 0 10px #baff39)}100%{opacity:1;transform:scale(1);filter:drop-shadow(0 5px 5px #0007)}}
+.modegate{position:fixed;inset:0;z-index:80;display:flex;align-items:center;justify-content:center;padding:18px;background:radial-gradient(ellipse at 50% 35%,#234c2d,#050a07 72%);overflow:auto}
+.modepanel{width:min(780px,100%);border:1px solid #50794a;border-radius:22px;padding:clamp(18px,4vw,34px);background:#0a160eeb;box-shadow:0 25px 100px #000b;text-align:center}
+.modepanel h2{font-size:clamp(28px,6vw,48px);line-height:1;margin:10px 0;color:#f5f5e7;letter-spacing:-.04em}
+.modepanel p{color:#9db49b;max-width:520px;margin:0 auto 22px}
+.modeoptions{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.modeoption{border:1px solid #476c43;border-radius:15px;background:linear-gradient(145deg,#14291a,#0a140d);padding:20px 14px;color:#f6f5e7;text-align:left;transition:.2s;min-height:150px}
+.modeoption:hover{border-color:var(--lime);transform:translateY(-3px);box-shadow:0 0 28px #baff3918}
+.modeoption b{display:block;font-size:18px;margin:10px 0 5px}
+.modeoption span{display:block;color:#9db49b;font-size:12px}
+.modeicon{font-size:32px;color:var(--lime)}
+.lobby{display:none;text-align:left;margin-top:18px;border-top:1px solid #2b472e;padding-top:18px}
+.lobby.show{display:block}
+.lobbyrow{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}
+.lobby input,.lobby select{background:#07100a;color:#f5f5e7;border:1px solid #476c43;border-radius:8px;padding:12px;min-width:0;flex:1}
+.lobby .primary{min-height:42px}
+.lobbystatus{font-size:12px;color:#c2d5b7;min-height:20px;margin:8px 0}
+.backmode{background:transparent;color:#b4c9ac;border:1px solid #3c553e;border-radius:8px;padding:10px 13px}
+@media(max-width:560px){.modeoptions{grid-template-columns:1fr}.modeoption{min-height:0;padding:15px}.modepanel{padding:18px}.modepanel h2{font-size:30px}}
+</style></head><body>
+<header><div class="brand"><div class="omni">⏣</div><div>OMNITRIX <span style="color:var(--lime)">TRUMP</span><small>ALIEN CARD BATTLE ARENA</small></div></div><div class="hdr"><div class="chip">MODE <b>VS COMPUTER</b></div><div class="chip">WINS <b id="wins">0</b></div></div></header>
+<main><div class="topline"><div><div class="eyebrow">◉ Omnitrix link established</div><h1>ALIEN <span style="color:var(--lime)">ARENA</span></h1><p>One deck. Two rivals. Choose the stat that wins the battle.</p></div><div style="display:flex;gap:7px;flex-wrap:wrap"><button class="smallbtn" id="newMatch">↻ New match</button><button class="smallbtn" id="collectionBtn">▦ 52 cards</button></div></div>
+<section class="stage" id="arena"><div class="stagehead"><strong>◈ LIVE BATTLE TABLE</strong><span class="live"><i class="dot"></i><span id="status">READY TO DEAL</span></span></div>
+<div class="table">
+<div class="playerzone"><div class="zonehead"><span>01 / YOUR SIDE</span><span class="who">PLAYER</span></div><div class="playing-card" id="pCard"><div class="cardinner"><div class="back"><div class="backframe"><div class="backlogo">⏣</div><div class="backtext">OMNITRIX</div></div></div><div class="face"></div></div></div></div>
+<div class="mid"><div class="roundlabel" id="round">ROUND 01</div><div class="vs">VS</div><div class="scores"><div class="score"><small>YOU</small><b id="ps">0</b></div><div class="score"><small>CPU</small><b id="cs">0</b></div></div><div class="message" id="message">Pick a stat to begin.</div></div>
+<div class="playerzone"><div class="zonehead"><span>02 / RIVAL SIDE</span><span class="cpu">CPU</span></div><div class="playing-card" id="cCard"><div class="cardinner"><div class="back"><div class="backframe"><div class="backlogo">⏣</div><div class="backtext">OMNITRIX</div></div></div><div class="face"></div></div></div></div>
+</div>
+<div class="controls"><div class="controltext"><strong>CHOOSE YOUR TRUMP STAT</strong><span id="hint">Pick the stat you think will beat the CPU.</span></div><div class="statsbuttons" id="statButtons"></div><button class="primary" id="action">REVEAL CARDS ⚡</button></div></section>
+<div class="deckbar"><div class="deckinfo"><div><span>YOUR DECK</span><b id="pDeck">26 cards</b><div class="progress"><i id="pProgress"></i></div></div><span>♠</span></div><div class="deckinfo"><div><span>DECK STATUS</span><b id="deckStatus">52 / 52</b><div class="progress"><i id="dProgress"></i></div></div><span>⏣</span></div><div class="deckinfo"><div><span>CPU DECK</span><b id="cDeck">26 cards</b><div class="progress"><i id="cProgress"></i></div></div><span>♥</span></div></div>
+<section class="collection" id="collection"><div style="display:flex;justify-content:space-between;align-items:center;gap:12px"><div><div class="eyebrow">Omnitrix database</div><h2>52-card collection</h2><p>Browse the full deck. Character art loads from online reference galleries when available.</p></div><button class="smallbtn" id="backBtn">← Back to arena</button></div><div class="grid" id="grid"></div></section>
+</main><footer><span>FAN-MADE GAME CONCEPT · BEN 10 CHARACTERS AND BRANDING BELONG TO THEIR RIGHTS HOLDERS.</span><span>Character artwork is externally hosted and may require internet access.</span></footer>
+<div class="intro" id="intro"><div class="introcontent"><div class="intrologo">⏣</div><div class="eyebrow">Omnitrix tournament protocol</div><h1>ENTER THE<br><span>ALIEN ARENA</span></h1><p>Your 52-card alien deck is ready. The computer's cards stay hidden until the showdown. Pick your trump stat and claim the table.</p><button class="primary" id="enter">ENTER ARENA →</button><small>SHUFFLE · DEAL · CHOOSE A STAT · REVEAL</small></div></div><div class="toast" id="toast">ROUND WON!</div>
+<div class="modegate" id="modeGate">
+ <div class="modepanel">
+  <div class="intrologo" style="width:74px;height:74px;font-size:42px;margin-bottom:16px">⏣</div>
+  <div class="eyebrow">Omnitrix tournament protocol</div>
+  <h2>CHOOSE YOUR <span style="color:var(--lime)">BATTLE</span></h2>
+  <p>Choose a game mode first. In multiplayer, each player sees only their own alien card; the rival's card stays hidden until both players choose a stat and the round resolves.</p>
+  <div class="modeoptions">
+   <button class="modeoption" id="chooseCpu"><span class="modeicon">⚡</span><b>PLAY VS COMPUTER</b><span>Start a playable solo match against the CPU.</span></button>
+   <button class="modeoption" id="chooseMulti"><span class="modeicon">◉</span><b>MULTIPLAYER</b><span>Create a room or join a friend's room, ready up, then let the host start.</span></button>
+  </div>
+  <div class="lobby" id="multiLobby">
+   <b style="font-size:16px">MULTIPLAYER LOBBY</b>
+   <div class="lobbyrow"><label style="flex:1;min-width:150px;font-size:11px;color:#9db49b">PLAYERS<select id="playerCount"><option value="2">2 players</option></select></label></div>
+   <div class="lobbyrow"><button class="primary" id="createRoom">CREATE ROOM</button><input id="roomCode" placeholder="Enter room code" maxlength="8" aria-label="Room code"><button class="primary" id="joinRoom">JOIN ROOM</button></div>
+   <div class="lobbystatus" id="lobbyStatus">Choose create or join. Both players must press Ready.</div>
+   <div class="lobbyrow"><button class="smallbtn" id="readyBtn" disabled>READY</button><button class="primary" id="hostStart" disabled>START PLAY</button><button class="backmode" id="backModes">← Modes</button></div>
+   <div class="lobbystatus" id="playerStatus"></div>
+  </div>
+ </div>
+</div>
+
+<script>
+const raw=[
+["Four Arms","Tetramand","Khoros",98,62,54,75,"💪","Four Arms.png"],["Heatblast","Pyronite","Pyros",78,72,61,96,"🔥","Heatblast 2.png"],["Diamondhead","Petrosapien","Petropia",83,57,64,84,"💎","Diamondhead.png"],["XLR8","Kineceleran","Kinet",55,100,72,77,"⚡","XLR8.png"],["Grey Matter","Galvan","Galvan Prime",22,49,100,58,"🧠","Grey Matter.png"],["Upgrade","Galvanic Mechamorph","Galvan B",63,70,93,86,"🛠️","Upgrade.png"],["Wildmutt","Vulpimancer","Vulpin",76,79,24,60,"🐾","Wildmutt.png"],["Stinkfly","Lepidopterran","Lepidopterra",47,86,51,72,"🪽","Stinkfly.png"],["Ripjaws","Piscciss Volann","Piscciss",74,81,39,64,"🦈","Ripjaws.png"],["Ghostfreak","Ectonurite","Anur Phaetos",68,82,77,91,"👻","Ghostfreak.png"],["Cannonbolt","Arburian Pelarota","Arburia",85,71,43,73,"🛡️","Cannonbolt.png"],["Wildvine","Florauna","Flors Verdance",67,66,58,79,"🌿","Wildvine.png"],["Upchuck","Gourmand","Peptos XI",73,54,48,78,"👾","Upchuck.png"],["Ditto","Splixson","Hulex",42,76,58,55,"🧬","Ditto.png"],["Eye Guy","Opticoid","Sightra",70,63,71,88,"👁️","Eye Guy.png"],["Way Big","To'kustar","Cosmic Storms",100,74,66,99,"🌠","Way Big.png"],["Wildvine (Classic)","Florauna","Flors Verdance",68,68,59,80,"🌱","Wildvine.png"],["Blitzwolfer","Loboan","Luna Lobo",79,77,62,69,"🐺","Blitzwolfer.png"],["Snare-oh","Thep Khufan","Anur Khufos",65,52,64,73,"🧟","Snare-Oh.png"],["Frankenstrike","Transylian","Anur Transyl",86,58,68,81,"⚡","Frankenstrike.png"],["Buzzshock","Nosedeenian","Nosedeen Quasar",49,93,67,82,"🔋","Buzzshock.png"],["Arctiguana","Polar Manzardill","X'Nelli",66,57,59,90,"❄️","Arctiguana.png"],["Spitter","Sphoeroid","Unknown",63,42,32,74,"💧","Spitter.png"],["Lodestar","Biot-Savartian","Unknown",72,58,82,92,"🧲","Lodestar.png"],["Rath","Appoplexian","Appoplexia",92,82,44,68,"🐅","Rath.png"],["Humungousaur","Vaxasaurian","Terradino",100,58,42,82,"🦖","Humungousaur.png"],["Big Chill","Necrofriggian","Kylmyys",72,81,70,94,"❄️","Big Chill.png"],["Jetray","Aerophibian","Aeropela",70,98,67,88,"🚀","Jetray.png"],["Swampfire","Methanosian","Methanos",84,69,72,90,"🔥","Swampfire.png"],["Echo Echo","Sonorosian","Sonorosia",62,78,76,87,"🔊","Echo Echo.png"],["Chromastone","Crystalsapien","Petropia",80,67,74,95,"💠","Chromastone.png"],["Brainstorm","Cerebrocrustacean","Encephalonus IV",69,57,98,85,"🧠","Brainstorm.png"],["Goop","Polymorph","Viscosia",65,72,62,86,"🟢","Goop.png"],["Alien X","Celestialsapien","Forge of Creation",100,94,100,100,"🌌","Alien X.png"],["Spidermonkey","Arachnichimp","Aranhaschimmia",68,90,62,73,"🕷️","Spidermonkey.png"],["Lodestar (Prime)","Biot-Savartian","Unknown",74,61,84,92,"🧲","Lodestar.png"],["Nanomech","Nanochip","Hive",43,92,74,77,"🤖","Nanomech.png"],["Water Hazard","Orishan","Kiusana",83,65,61,84,"💦","Water Hazard.png"],["AmpFibian","Amperi","Tesslos",67,86,82,96,"⚡","AmpFibian.png"],["Armodrillo","Talpaedan","Turf",92,65,54,74,"🦾","Armodrillo.png"],["NRG","Prypiatosian-B","Prypiatos",89,52,71,99,"☢️","NRG.png"],["Terraspin","Geochelone Aerio","Aire",61,48,73,91,"🐢","Terraspin.png"],["Clockwork","Chronosapien","Unknown",70,50,96,97,"⏱️","Clockwork.png"],["Fasttrack","Citrakayah","Unknown",64,96,60,74,"💨","Fasttrack.png"],["Eatle","Oryctini","Unknown",86,58,43,75,"🪲","Eatle.png"],["Juryrigg","Planchakule","Unknown",54,77,88,65,"🔧","Juryrigg.png"],["Shocksquatch","Gimlinopithecus","Pattersonea",82,72,55,84,"⚡","Shocksquatch.png"],["Feedback","Conductoid","Teslavorr",76,83,72,97,"🔌","Feedback.png"],["Bloxx","Segmentasapien","Polyominus",74,65,59,83,"🧱","Bloxx.png"],["Gravattack","Galilean","Keplorr",90,54,80,94,"🪐","Gravattack.png"],["Atomix","Unknown","Unknown",98,66,86,100,"☢️","Atomix.png"],["Kickin Hawk","Kineseleran?","Unknown",82,88,59,65,"🥊","Kickin Hawk.png"]];
+const aliens=raw.map((r,i)=>({name:r[0],species:r[1],planet:r[2],strength:r[3],speed:r[4],intellect:r[5],energy:r[6],icon:r[7],file:r[8],rank:i+1,suit:["♠","♥","♦","♣"][Math.floor(i/13)],suitIndex:Math.floor(i/13),glow:["#e7aa52","#d44e45","#67b9ad","#a7d653"][Math.floor(i/13)],ability:`${r[1]} transformation · ${r[2]} origin · ${["Physical power","Agility and speed","Tactical intelligence","Energy and special abilities"][i%4]}.`}));
+const statKeys=["strength","speed","intellect","energy"], statNames={strength:"Strength",speed:"Speed",intellect:"Intellect",energy:"Energy"};
+let pDeck=[],cDeck=[],pScore=0,cScore=0,round=1,selected="strength",phase="deal",match=0,wins=0,pCurrent=null,cCurrent=null,animating=false;
+const $=id=>document.getElementById(id);
+function shuffled(a){let b=[...a];for(let i=b.length-1;i>0;i--){let j=Math.floor(Math.random()*(i+1));[b[i],b[j]]=[b[j],b[i]]}return b}
+function imageCandidates(a){
+ const clean=a.name.replace(/ \(Classic\)| \(Prime\)/g,"");
+ const names=[a.file,clean+".png",clean.replace(/ /g,"_")+".png",clean+" (Original Series).png",clean+" OS.png",clean+" (Omniverse).png"];
+ return [...new Set(names)].map(n=>"/images/aliens/heatblast.svg?legacy="+encodeURIComponent(n));
+}
+function imgURL(a){return imageCandidates(a)[0]}
+async function tryNextImage(img,name){
+ const a=aliens.find(x=>x.name===name);
+ if(!a){img.remove();return}
+ const tried=Number(img.dataset.tried||0)+1;img.dataset.tried=String(tried);
+ const urls=imageCandidates(a);
+ if(tried<urls.length){img.src=urls[tried];return}
+ if(img.dataset.apiTried==="1"){img.remove();return}
+ img.dataset.apiTried="1";
+ try{
+   const q=encodeURIComponent('filetype:bitmap "'+a.name+'"');
+   const api='https://ben10.fandom.com/api.php?action=query&generator=search&gsrsearch='+q+'&gsrnamespace=6&gsrlimit=8&prop=imageinfo&iiprop=url&iiurlwidth=500&format=json&origin=*';
+   const response=await fetch(api);
+   if(!response.ok)throw new Error("Image search unavailable");
+   const data=await response.json();
+   const pages=Object.values(data.query?.pages||{});
+   const match=pages.find(page=>/imageinfo/.test(JSON.stringify(page))&&page.title.toLowerCase().includes(a.name.toLowerCase()));
+   const candidate=match?.imageinfo?.[0]?.thumburl||match?.imageinfo?.[0]?.url;
+   if(candidate){img.dataset.apiResolved="1";img.src=candidate;return}
+ }catch(e){}
+ img.remove();
+}
+function faceMarkup(a){return `<div class="facehead"><span style="color:${a.suit==="♥"||a.suit==="♦"?"#d8292c":"#172315"}">${a.rank===1?"A":a.rank===11?"J":a.rank===12?"Q":a.rank===13?"K":a.rank} <span class="suit">${a.suit}</span></span><small>OMNITRIX DATA</small></div><div class="portrait" style="--glow:${a.glow}"><div class="fallback">${a.icon}</div><img loading="lazy" src="${imgURL(a)}" alt="${a.name}" onload="this.parentElement.classList.add('hasimg')" onerror="tryNextImage(this, '${a.name}')"></div><div class="cardname">${a.name}</div><div class="species">${a.species} · ${a.planet}</div><div class="stats">${statKeys.map(k=>`<div class="stat"><div class="statline"><span>${statNames[k]}</span><b>${a[k]}</b></div><div style="height:3px;background:#c5c2a5;border-radius:5px;margin-top:3px"><i style="display:block;height:100%;width:${a[k]}%;background:${a.glow};border-radius:5px"></i></div></div>`).join("")}</div><div class="ability">${a.ability}</div><div class="cardcorner bottom">${a.rank} ${a.suit}</div>`}
+function setFace(id,a){$(id).querySelector(".face").innerHTML=faceMarkup(a)}
+function card(id){return $(id)}
+function hideFaces(){["pCard","cCard"].forEach(id=>{card(id).classList.remove("revealed","win","lose");card(id).querySelector(".face").innerHTML=""})}
+function updateStats(){$("ps").textContent=pScore;$("cs").textContent=cScore;$("pDeck").textContent=pDeck.length+" cards";$("cDeck").textContent=cDeck.length+" cards";$("deckStatus").textContent=(pDeck.length+cDeck.length)+" / 52";$("pProgress").style.width=(pDeck.length/26*100)+"%";$("cProgress").style.width=(cDeck.length/26*100)+"%";$("dProgress").style.width=((52-pDeck.length-cDeck.length)/52*100)+"%";$("round").textContent="ROUND "+String(round).padStart(2,"0")}
+function chooseStat(k){if(animating||phase!=="choose")return;selected=k;document.querySelectorAll(".statbtn").forEach(b=>b.classList.toggle("active",b.dataset.stat===k));$("hint").textContent=statNames[k]+" selected. Revealing cards…";setTimeout(()=>{if(phase==="choose"&&!animating)reveal()},120)}
+function buildStatButtons(){$("statButtons").innerHTML=statKeys.map(k=>`<button class="statbtn ${k===selected?"active":""}" data-stat="${k}">${statNames[k]}</button>`).join("");document.querySelectorAll(".statbtn").forEach(b=>b.onclick=()=>chooseStat(b.dataset.stat))}
+function toast(t){$("toast").textContent=t;$("toast").classList.add("show");setTimeout(()=>$("toast").classList.remove("show"),1500)}
+function newMatch(){pDeck=shuffled(aliens.slice(0,52));cDeck=pDeck.splice(26,26);pScore=0;cScore=0;round=1;match++;phase="deal";animating=false;hideFaces();updateStats();$("status").textContent="DECK READY";$("message").textContent="Tap Deal to start a new hand.";$("action").disabled=false;$("action").textContent="SHUFFLE & DEAL ↻";$("hint").textContent="52 cards are shuffled and dealt equally.";buildStatButtons()}
+function beginDeal(){if(animating)return;animating=true;phase="shuffle";$("action").disabled=true;$("status").textContent="SHUFFLING";$("message").textContent="Shuffling the deck…";hideFaces();card("pCard").classList.add("shuffling");card("cCard").classList.add("shuffling");setTimeout(()=>{card("pCard").classList.remove("shuffling");card("cCard").classList.remove("shuffling");if(!pDeck.length||!cDeck.length){finishGame();return}pCurrent=pDeck.pop();cCurrent=cDeck.pop();setFace("pCard",pCurrent);card("pCard").classList.add("revealed");card("pCard").classList.add("deal");$("status").textContent="DEALING YOUR CARD";$("message").textContent="Your card is dealt…";setTimeout(()=>{card("pCard").classList.remove("deal");card("cCard").classList.add("deal");$("status").textContent="CPU CARD HIDDEN";$("message").textContent="Both cards are ready. CPU remains hidden.";phase="choose";animating=false;$("action").disabled=false;$("action").textContent="REVEAL CARDS ⚡";$("hint").textContent="Choose a stat, then reveal both cards.";updateStats();setTimeout(()=>card("cCard").classList.remove("deal"),800)},420)},1950)}
+function reveal(){if(animating)return;if(phase==="deal"){beginDeal();return}if(phase==="result"){nextRound();return}if(phase!=="choose")return;animating=true;phase="reveal";$("action").disabled=true;$("status").textContent="TRUMP SELECTED";$("message").textContent="Comparing "+statNames[selected]+"…";setFace("cCard",cCurrent);setTimeout(()=>{card("cCard").classList.add("revealed");setTimeout(()=>{let p=pCurrent[selected],c=cCurrent[selected];card("pCard").classList.add(p>=c?"win":"lose");card("cCard").classList.add(c>p?"win":"lose");if(p>c){pScore++;$("message").innerHTML=`<b style="color:var(--lime)">YOU WIN!</b><br>${p} vs ${c} ${statNames[selected]}`;toast("ROUND WON! +1");}else if(c>p){cScore++;$("message").innerHTML=`<b style="color:#ff9c8d">CPU WINS!</b><br>${c} vs ${p} ${statNames[selected]}`;toast("CPU TAKES THE ROUND");}else{$("message").innerHTML=`<b style="color:#ffe9a6">DRAW!</b><br>Both scored ${p}`;toast("POWER MATCH — DRAW")}round++;phase="result";animating=false;$("action").disabled=true;$("action").textContent="NEXT HAND DEALING…";$("hint").textContent="Next hand dealing automatically…";updateStats();$("status").textContent="ROUND COMPLETE";setTimeout(()=>{if(pScore>=14||cScore>=14||!pDeck.length||!cDeck.length){finishGame()}else{phase="deal";hideFaces();beginDeal()}},1600)},700)},200)}
+function nextRound(){if(pScore>=14||cScore>=14||!pDeck.length||!cDeck.length){finishGame();return}phase="deal";hideFaces();$("status").textContent="READY TO DEAL";$("message").textContent="Cards collected. Deal the next hand."; $("action").textContent="DEAL NEXT HAND →";$("action").disabled=false;$("hint").textContent="Select when ready to deal the next pair.";beginDeal()}
+function finishGame(){phase="finished";animating=false;$("status").textContent="MATCH COMPLETE";let msg=pScore>cScore?"YOU ARE THE CHAMPION!":pScore<cScore?"CPU WINS THE MATCH":"MATCH DRAW";$("message").innerHTML=`<b style="color:var(--lime)">${msg}</b><br>${pScore} to ${cScore}`;if(pScore>cScore){wins++;$("wins").textContent=wins}$("action").disabled=false;$("action").textContent="PLAY AGAIN ↻";$("hint").textContent="Start a fresh shuffled 52-card match."}
+function showCollection(){ $("arena").style.display="none";$("collection").classList.add("show");$("grid").innerHTML=aliens.map(a=>`<div class="mini"><div style="display:flex;justify-content:space-between;font:bold 12px Georgia"><span>${a.rank===1?"A":a.rank===11?"J":a.rank===12?"Q":a.rank===13?"K":a.rank}</span><span style="color:${a.suit==="♥"||a.suit==="♦"?"#d8292c":"#172315"}">${a.suit}</span></div><div class="portrait" style="--glow:${a.glow}"><div class="fallback">${a.icon}</div><img loading="lazy" src="${imgURL(a)}" alt="${a.name}" onerror="tryNextImage(this, '${a.name}')"></div><div class="cardname">${a.name}</div><div class="species">${a.species}</div><div class="stats">${statKeys.map(k=>`<div class="stat"><div class="statline"><span>${statNames[k]}</span><b>${a[k]}</b></div></div>`).join("")}</div></div>`).join("")}
+function showArena(){$("arena").style.display="block";$("collection").classList.remove("show")}
+$("action").onclick=()=>{if(phase==="finished"){newMatch();beginDeal()}else reveal()};$("newMatch").onclick=()=>{newMatch();toast("NEW 52-CARD DECK SHUFFLED")};$("collectionBtn").onclick=showCollection;$("backBtn").onclick=showArena;$("enter").onclick=()=>{$("intro").classList.add("hide");beginDeal()};newMatch();
+</script>
+<script>
+/* Mode gate and room setup. Multiplayer uses Firestore when configured; gameplay room sync
+   requires the Firestore room rules below and Firebase network access. */
+(function(){
+ const gate=document.getElementById('modeGate'), lobby=document.getElementById('multiLobby');
+ const status=document.getElementById('lobbyStatus'), players=document.getElementById('playerStatus');
+ let mode='cpu', roomId='', uid='', isHost=false, ready=false, roomUnsub=null, fbReady=false, db=null, auth=null;
+ const cfg={apiKey:"AIzaSyBjXMO0BIytLzZ23ObtPzVoF1Toomf6AX4",authDomain:"hello-world-gemini-452416.firebaseapp.com",projectId:"hello-world-gemini-452416",storageBucket:"hello-world-gemini-452416.firebasestorage.app",messagingSenderId:"547678724409",appId:"1:547678724409:web:1ca50c5a42cd7ce41508e8",measurementId:"G-2FVF51N4NS"};
+ function loadFirebase(){
+   if(window.firebase&&firebase.firestore){return Promise.resolve(true)}
+   return new Promise((resolve,reject)=>{
+     const a=document.createElement('script');a.src='https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js';
+     a.onload=()=>{const b=document.createElement('script');b.src='https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js';b.onload=()=>{const c=document.createElement('script');c.src='https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js';c.onload=()=>resolve(true);c.onerror=reject;document.head.appendChild(c)};b.onerror=reject;document.head.appendChild(b)};a.onerror=reject;document.head.appendChild(a);
+   });
+ }
+ async function initFirebase(){
+   if(fbReady)return true;
+   try{await loadFirebase();if(!firebase.apps.length)firebase.initializeApp(cfg);auth=firebase.auth();db=firebase.firestore();const cred=await auth.signInAnonymously();uid=cred.user.uid;fbReady=true;return true}
+   catch(e){status.textContent='Firebase connection failed: '+(e.message||'check network, Anonymous Auth, and Firestore settings');return false}
+ }
+ function code(){return Math.random().toString(36).slice(2,7).toUpperCase()}
+ function setLobby(text){status.textContent=text}
+ function roomRef(){return db.collection('omnitrixRooms').doc(roomId)}
+ function watchRoom(){
+   if(roomUnsub)roomUnsub();
+   roomUnsub=roomRef().onSnapshot(s=>{
+     if(!s.exists){setLobby('Room no longer exists. Create or join another room.');return}
+     const d=s.data(), list=Object.values(d.players||{});
+     const readyCount=list.filter(p=>p.ready).length;
+     players.textContent='Room '+roomId+' · Players '+list.length+'/2 · Ready '+readyCount+'/2'+(list.map((p,i)=>' · P'+(i+1)+': '+(p.ready?'READY':'WAITING')).join(''));
+     document.getElementById('readyBtn').disabled=list.length<2||ready;
+     document.getElementById('readyBtn').textContent=ready?'READY ✓':'READY';
+     document.getElementById('hostStart').disabled=!isHost||list.length!==2||readyCount!==2||d.started;
+     if(d.started){setLobby('Match started. Multiplayer room state is live.');players.textContent+=' · MATCH LIVE';}
+   },e=>setLobby('Room listener error: '+e.message));
+ }
+ document.getElementById('chooseCpu').onclick=()=>{
+   mode='cpu';gate.style.display='none';document.getElementById('intro').classList.add('hide');
+   document.querySelector('.hdr .chip:first-child').innerHTML='MODE <b>VS COMPUTER</b>';
+   newMatch();beginDeal();
+ };
+ document.getElementById('chooseMulti').onclick=()=>{lobby.classList.add('show');setLobby('Connecting to multiplayer…');initFirebase().then(ok=>{if(ok)setLobby('Connected. Create a room or enter your friend’s code.')})};
+ document.getElementById('backModes').onclick=()=>{if(roomUnsub)roomUnsub();roomUnsub=null;lobby.classList.remove('show');setLobby('Choose create or join.');};
+ document.getElementById('createRoom').onclick=async()=>{
+   if(!await initFirebase())return;roomId=code();isHost=true;ready=false;
+   try{await roomRef().set({createdAt:firebase.firestore.FieldValue.serverTimestamp(),host:uid,started:false,players:{[uid]:{ready:false,host:true,joinedAt:Date.now()}}});
+    document.getElementById('roomCode').value=roomId;document.getElementById('roomCode').readOnly=true;document.getElementById('readyBtn').disabled=true;watchRoom();setLobby('Room created. Share code '+roomId+' and wait for the opponent.');}
+   catch(e){setLobby('Could not create room: '+e.message)}
+ };
+ document.getElementById('joinRoom').onclick=async()=>{
+   if(!await initFirebase())return;roomId=(document.getElementById('roomCode').value||'').trim().toUpperCase();if(!roomId){setLobby('Enter a room code first.');return}isHost=false;ready=false;
+   try{await db.runTransaction(async tx=>{const ref=roomRef(),s=await tx.get(ref);if(!s.exists)throw new Error('Room not found');const d=s.data(),ps=d.players||{};if(Object.keys(ps).length>=2&&!ps[uid])throw new Error('Room is full');ps[uid]={ready:false,host:false,joinedAt:Date.now()};tx.update(ref,{players:ps})});
+    document.getElementById('roomCode').readOnly=true;watchRoom();setLobby('Joined room '+roomId+'. Press Ready when you are prepared.');}
+   catch(e){setLobby('Could not join: '+e.message)}
+ };
+ document.getElementById('readyBtn').onclick=async()=>{
+   if(!roomId||!db)return;try{ready=true;await roomRef().update({['players.'+uid+'.ready']:true});setLobby('You are ready. Waiting for the other player and host.')}catch(e){ready=false;setLobby('Could not set ready: '+e.message)}
+ };
+ document.getElementById('hostStart').onclick=async()=>{
+   if(!isHost||!roomId)return;try{await db.runTransaction(async tx=>{const ref=roomRef(),s=await tx.get(ref);if(!s.exists)throw new Error('Room not found');const d=s.data(),ps=Object.values(d.players||{});if(ps.length!==2||ps.some(p=>!p.ready))throw new Error('Both players must be ready');tx.update(ref,{started:true,startedAt:firebase.firestore.FieldValue.serverTimestamp()})});setLobby('START PLAY pressed. Room marked as started.');}
+   catch(e){setLobby('Cannot start yet: '+e.message)}
+ };
+})();
+</script>
+</body></html>

@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 320" width="400" height="320">
+  <defs>
+    <radialGradient id="bgGlow" cx="50%" cy="48%" r="60%">
+      <stop offset="0%" stop-color="#44ff88" stop-opacity="0.45"/>
+      <stop offset="62%" stop-color="#0b180e" stop-opacity="0.94"/>
+      <stop offset="100%" stop-color="#040906" stop-opacity="1"/>
+    </radialGradient>
+    <linearGradient id="fireOuter" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffee00"/>
+      <stop offset="50%" stop-color="#ff5500"/>
+      <stop offset="100%" stop-color="#aa1100"/>
+    </linearGradient>
+    <pattern id="hexGrid" width="24" height="24" patternUnits="userSpaceOnUse">
+      <path d="M12 0 L24 6 L24 18 L12 24 L0 18 L0 6 Z" fill="none" stroke="#44ff88" stroke-width="0.65" stroke-opacity="0.22"/>
+    </pattern>
+  </defs>
+  <rect width="400" height="320" fill="url(#bgGlow)"/>
+  <rect width="400" height="320" fill="url(#hexGrid)"/>
+  <!-- Omnitrix Energy Halo -->
+  <circle cx="200" cy="158" r="110" fill="none" stroke="#44ff88" stroke-width="2" stroke-opacity="0.45" stroke-dasharray="14 7"/>
+  <circle cx="200" cy="158" r="95" fill="none" stroke="#baff39" stroke-width="1.5" stroke-opacity="0.32"/>
+  <!-- Corner Framing -->
+  <path d="M16 40 L16 16 L44 16" fill="none" stroke="#44ff88" stroke-width="3"/>
+  <path d="M384 40 L384 16 L356 16" fill="none" stroke="#44ff88" stroke-width="3"/>
+  <path d="M16 280 L16 304 L44 304" fill="none" stroke="#44ff88" stroke-width="3"/>
+  <path d="M384 280 L384 304 L356 304" fill="none" stroke="#44ff88" stroke-width="3"/>
+  <!-- Top Species / Element Header -->
+  <text x="26" y="32" fill="#d9ffab" font-family="monospace" font-size="11" font-weight="bold" letter-spacing="1.5">OPTICOID</text>
+  <text x="374" y="32" fill="#aaffcc" font-family="monospace" font-size="11" font-weight="bold" text-anchor="end">OPTIC // BLASTER</text>
+  <!-- Detailed Alien Vector Illustration -->
+  
+      <!-- Large Bat-Like Opticoid Ears -->
+      <polygon points="145,135 88,78 132,175" fill="#ffb74d" stroke="#ffe082" stroke-width="2.5"/>
+      <polygon points="255,135 312,78 268,175" fill="#ffb74d" stroke="#ffe082" stroke-width="2.5"/>
+      <!-- Head & Torso Covered in Glowing Green Eyes -->
+      <path d="M142 105 Q200 82 258 105 L268 265 L132 265 Z" fill="#f57c00" stroke="#ffcc80" stroke-width="3"/>
+      <!-- Colossal Central Chest Mega-Eye -->
+      <ellipse cx="200" cy="192" rx="44" ry="32" fill="#00e676" stroke="#1b5e20" stroke-width="4"/>
+      <circle cx="200" cy="192" r="16" fill="#051a0a"/>
+      <circle cx="194" cy="186" r="5" fill="#ffffff"/>
+      <!-- Secondary Shoulder & Head Eyes -->
+      <circle cx="158" cy="138" r="11" fill="#00e676" stroke="#1b5e20" stroke-width="2"/>
+      <circle cx="242" cy="138" r="11" fill="#00e676" stroke="#1b5e20" stroke-width="2"/>
+      <circle cx="182" cy="118" r="9" fill="#00e676" stroke="#1b5e20" stroke-width="2"/>
+      <circle cx="218" cy="118" r="9" fill="#00e676" stroke="#1b5e20" stroke-width="2"/>
+      <circle cx="148" cy="185" r="10" fill="#00e676" stroke="#1b5e20" stroke-width="2"/>
+      <circle cx="252" cy="185" r="10" fill="#00e676" stroke="#1b5e20" stroke-width="2"/>
+    
+  <!-- Signature Omnitrix Badge -->
+  <g transform="translate(200, 246)">
+    <circle cx="0" cy="0" r="16" fill="#07110a" stroke="#baff39" stroke-width="3"/>
+    <polygon points="-9,-11 9,-11 3,0 9,11 -9,11 -3,0" fill="#baff39"/>
+  </g>
+  <!-- Bottom Name Plate -->
+  <rect x="44" y="276" width="312" height="28" rx="6" fill="#061009" fill-opacity="0.92" stroke="#44ff88" stroke-width="1.8"/>
+  <text x="200" y="295" fill="#ffffff" font-family="monospace" font-size="14" font-weight="bold" letter-spacing="3" text-anchor="middle">EYE GUY</text>
+</svg>

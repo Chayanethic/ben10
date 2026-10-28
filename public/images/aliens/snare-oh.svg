@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 320" width="400" height="320">
+  <defs>
+    <radialGradient id="bgGlow" cx="50%" cy="48%" r="60%">
+      <stop offset="0%" stop-color="#eebb44" stop-opacity="0.45"/>
+      <stop offset="62%" stop-color="#0b180e" stop-opacity="0.94"/>
+      <stop offset="100%" stop-color="#040906" stop-opacity="1"/>
+    </radialGradient>
+    <linearGradient id="fireOuter" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffee00"/>
+      <stop offset="50%" stop-color="#ff5500"/>
+      <stop offset="100%" stop-color="#aa1100"/>
+    </linearGradient>
+    <pattern id="hexGrid" width="24" height="24" patternUnits="userSpaceOnUse">
+      <path d="M12 0 L24 6 L24 18 L12 24 L0 18 L0 6 Z" fill="none" stroke="#eebb44" stroke-width="0.65" stroke-opacity="0.22"/>
+    </pattern>
+  </defs>
+  <rect width="400" height="320" fill="url(#bgGlow)"/>
+  <rect width="400" height="320" fill="url(#hexGrid)"/>
+  <!-- Omnitrix Energy Halo -->
+  <circle cx="200" cy="158" r="110" fill="none" stroke="#eebb44" stroke-width="2" stroke-opacity="0.45" stroke-dasharray="14 7"/>
+  <circle cx="200" cy="158" r="95" fill="none" stroke="#baff39" stroke-width="1.5" stroke-opacity="0.32"/>
+  <!-- Corner Framing -->
+  <path d="M16 40 L16 16 L44 16" fill="none" stroke="#eebb44" stroke-width="3"/>
+  <path d="M384 40 L384 16 L356 16" fill="none" stroke="#eebb44" stroke-width="3"/>
+  <path d="M16 280 L16 304 L44 304" fill="none" stroke="#eebb44" stroke-width="3"/>
+  <path d="M384 280 L384 304 L356 304" fill="none" stroke="#eebb44" stroke-width="3"/>
+  <!-- Top Species / Element Header -->
+  <text x="26" y="32" fill="#d9ffab" font-family="monospace" font-size="11" font-weight="bold" letter-spacing="1.5">THEP KHUFAN</text>
+  <text x="374" y="32" fill="#ffdd88" font-family="monospace" font-size="11" font-weight="bold" text-anchor="end">BANDAGE // CONTROLLER</text>
+  <!-- Detailed Alien Vector Illustration -->
+  
+      <!-- Egyptian Nemes Pharaoh Headdress & Gold Crest -->
+      <path d="M122 225 L138 88 L200 68 L262 88 L278 225 L242 225 L232 145 L168 145 L158 225 Z" fill="#263238" stroke="#ffd54f" stroke-width="3.5"/>
+      <!-- Wrapped Linen Bandage Face & Glowing Corrodium Green Core -->
+      <rect x="155" y="102" width="90" height="105" rx="14" fill="#d7ccc8" stroke="#8d6e63" stroke-width="3"/>
+      <g stroke="#8d6e63" stroke-width="4">
+        <line x1="155" y1="125" x2="245" y2="135"/>
+        <line x1="155" y1="158" x2="245" y2="148"/>
+        <line x1="155" y1="182" x2="245" y2="192"/>
+      </g>
+      <!-- Glowing Green Eyes & Unraveling Bandage Strips -->
+      <polygon points="168,132 192,138 172,146" fill="#00ff44"/>
+      <polygon points="232,132 208,138 228,146" fill="#00ff44"/>
+      <path d="M92 175 Q125 145 152 175" fill="none" stroke="#e0e0e0" stroke-width="11" stroke-linecap="round"/>
+      <path d="M308 175 Q275 145 248 175" fill="none" stroke="#e0e0e0" stroke-width="11" stroke-linecap="round"/>
+    
+  <!-- Signature Omnitrix Badge -->
+  <g transform="translate(200, 246)">
+    <circle cx="0" cy="0" r="16" fill="#07110a" stroke="#baff39" stroke-width="3"/>
+    <polygon points="-9,-11 9,-11 3,0 9,11 -9,11 -3,0" fill="#baff39"/>
+  </g>
+  <!-- Bottom Name Plate -->
+  <rect x="44" y="276" width="312" height="28" rx="6" fill="#061009" fill-opacity="0.92" stroke="#eebb44" stroke-width="1.8"/>
+  <text x="200" y="295" fill="#ffffff" font-family="monospace" font-size="14" font-weight="bold" letter-spacing="3" text-anchor="middle">SNARE-OH</text>
+</svg>

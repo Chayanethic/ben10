@@ -1,0 +1,1297 @@
+{
+  "generatedAt": "2026-10-27T18:50:14.843Z",
+  "sourceExcelFile": "data/Omnitrix_Character_Image_Library.xlsx",
+  "totalRows": 61,
+  "validSyntaxUrls": 61,
+  "missingUrls": 0,
+  "duplicateIds": 0,
+  "duplicateNames": 0,
+  "localSvgFallbacksGenerated": 61,
+  "cdnHashAnomaliesFlagged": [
+    {
+      "characterId": "upchuck",
+      "characterName": "Upchuck",
+      "sharedPrefix": "/thumb/7/76/",
+      "collidesWith": "xlr8",
+      "excelImageUrl": "https://www.wikihow.com/images/thumb/7/76/All-Ben-10-Aliens-Step-17.jpg/728px-All-Ben-10-Aliens-Step-17.jpg.webp"
+    },
+    {
+      "characterId": "spidermonkey",
+      "characterName": "Spidermonkey",
+      "sharedPrefix": "/thumb/8/87/",
+      "collidesWith": "spitter",
+      "excelImageUrl": "https://www.wikihow.com/images/thumb/8/87/All-Ben-10-Aliens-Step-30.jpg/728px-All-Ben-10-Aliens-Step-30.jpg.webp"
+    },
+    {
+      "characterId": "goop",
+      "characterName": "Goop",
+      "sharedPrefix": "/thumb/1/19/",
+      "collidesWith": "arctiguana",
+      "excelImageUrl": "https://www.wikihow.com/images/thumb/1/19/All-Ben-10-Aliens-Step-31.jpg/728px-All-Ben-10-Aliens-Step-31.jpg.webp"
+    },
+    {
+      "characterId": "nanomech",
+      "characterName": "Nanomech",
+      "sharedPrefix": "/thumb/7/76/",
+      "collidesWith": "xlr8",
+      "excelImageUrl": "https://www.wikihow.com/images/thumb/7/76/All-Ben-10-Aliens-Step-34.jpg/728px-All-Ben-10-Aliens-Step-34.jpg.webp"
+    },
+    {
+      "characterId": "waterhazard",
+      "characterName": "Waterhazard",
+      "sharedPrefix": "/thumb/0/00/",
+      "collidesWith": "way-big",
+      "excelImageUrl": "https://www.wikihow.com/images/thumb/0/00/All-Ben-10-Aliens-Step-37.jpg/728px-All-Ben-10-Aliens-Step-37.jpg.webp"
+    },
+    {
+      "characterId": "ampfibian",
+      "characterName": "Ampfibian",
+      "sharedPrefix": "/thumb/3/3d/",
+      "collidesWith": "wildmutt",
+      "excelImageUrl": "https://www.wikihow.com/images/thumb/3/3d/All-Ben-10-Aliens-Step-38.jpg/728px-All-Ben-10-Aliens-Step-38.jpg.webp"
+    },
+    {
+      "characterId": "gutrot",
+      "characterName": "Gutrot",
+      "sharedPrefix": "/thumb/d/de/",
+      "collidesWith": "swampfire",
+      "excelImageUrl": "https://www.wikihow.com/images/thumb/d/de/All-Ben-10-Aliens-Step-62.jpg/728px-All-Ben-10-Aliens-Step-62.jpg.webp"
+    },
+    {
+      "characterId": "toepick",
+      "characterName": "Toepick",
+      "sharedPrefix": "/thumb/f/ff/",
+      "collidesWith": "upgrade",
+      "excelImageUrl": "https://www.wikihow.com/images/thumb/f/ff/All-Ben-10-Aliens-Step-58.jpg/728px-All-Ben-10-Aliens-Step-58.jpg.webp"
+    },
+    {
+      "characterId": "ball-weevil",
+      "characterName": "Ball Weevil",
+      "sharedPrefix": "/thumb/3/3d/",
+      "collidesWith": "wildmutt",
+      "excelImageUrl": "https://www.wikihow.com/images/thumb/3/3d/All-Ben-10-Aliens-Step-52.jpg/728px-All-Ben-10-Aliens-Step-52.jpg.webp"
+    }
+  ],
+  "records": [
+    {
+      "rowNumber": 2,
+      "characterId": "heatblast",
+      "characterName": "Heatblast",
+      "species": "Pyronite",
+      "role": "Blaster",
+      "rarity": "Epic",
+      "excelImageUrl": "https://www.wikihow.com/images/thumb/a/af/All-Ben-10-Aliens-Step-1.jpg/728px-All-Ben-10-Aliens-Step-1.jpg.webp",
+      "fallbackImageUrl": "/images/aliens/heatblast.svg",
+      "localFallbackExists": true,
+      "firebaseStoragePath": "characters/heatblast.webp",
+      "urlSyntaxValid": true,
+      "duplicateId": false,
+      "duplicateName": false,
+      "hashCollisionWith": null,
+      "networkProbe": {
+        "status": "SKIPPED_OFFLINE (Run with --probe-network to test live HTTP status)",
+        "httpStatus": null
+      }
+    },
+    {
+      "rowNumber": 3,
+      "characterId": "wildmutt",
+      "characterName": "Wildmutt",
+      "species": "Vulpimancer",
+      "role": "Tracker",
+      "rarity": "Rare",
+      "excelImageUrl": "https://www.wikihow.com/images/thumb/3/3d/All-Ben-10-Aliens-Step-2.jpg/728px-All-Ben-10-Aliens-Step-2.jpg.webp",
+      "fallbackImageUrl": "/images/aliens/wildmutt.svg",
+      "localFallbackExists": true,
+      "firebaseStoragePath": "characters/wildmutt.webp",
+      "urlSyntaxValid": true,
+      "duplicateId": false,
+      "duplicateName": false,
+      "hashCollisionWith": null,
+      "networkProbe": {
+        "status": "SKIPPED_OFFLINE (Run with --probe-network to test live HTTP status)",
+        "httpStatus": null
+      }
+    },
+    {
+      "rowNumber": 4,
+      "characterId": "diamondhead",
+      "characterName": "Diamondhead",
+      "species": "Petrosapien",
+      "role": "Tank",
+      "rarity": "Epic",
+      "excelImageUrl": "https://www.wikihow.com/images/thumb/c/c8/All-Ben-10-Aliens-Step-3.jpg/728px-All-Ben-10-Aliens-Step-3.jpg.webp",
+      "fallbackImageUrl": "/images/aliens/diamondhead.svg",
+      "localFallbackExists": true,
+      "firebaseStoragePath": "characters/diamondhead.webp",
+      "urlSyntaxValid": true,
+      "duplicateId": false,
+      "duplicateName": false,
+      "hashCollisionWith": null,
+      "networkProbe": {
+        "status": "SKIPPED_OFFLINE (Run with --probe-network to test live HTTP status)",
+        "httpStatus": null
+      }
+    },
+    {
+      "rowNumber": 5,
+      "characterId": "xlr8",
+      "characterName": "XLR8",
+      "species": "Kineceleran",
+      "role": "Speedster",
+      "rarity": "Epic",
+      "excelImageUrl": "https://www.wikihow.com/images/thumb/7/76/All-Ben-10-Aliens-Step-4.jpg/728px-All-Ben-10-Aliens-Step-4.jpg.webp",
+      "fallbackImageUrl": "/images/aliens/xlr8.svg",
+      "localFallbackExists": true,
+      "firebaseStoragePath": "characters/xlr8.webp",
+      "urlSyntaxValid": true,
+      "duplicateId": false,
+      "duplicateName": false,
+      "hashCollisionWith": null,
+      "networkProbe": {
+        "status": "SKIPPED_OFFLINE (Run with --probe-network to test live HTTP status)",
+        "httpStatus": null
+      }
+    },
+    {
+      "rowNumber": 6,
+      "characterId": "grey-matter",
+      "characterName": "Grey Matter",
+      "species": "Galvan",
+      "role": "Tactician",
+      "rarity": "Rare",
+      "excelImageUrl": "https://www.wikihow.com/images/thumb/9/9a/All-Ben-10-Aliens-Step-5.jpg/728px-All-Ben-10-Aliens-Step-5.jpg.webp",
+      "fallbackImageUrl": "/images/aliens/grey-matter.svg",
+      "localFallbackExists": true,
+      "firebaseStoragePath": "characters/grey-matter.webp",
+      "urlSyntaxValid": true,
+      "duplicateId": false,
+      "duplicateName": false,
+      "hashCollisionWith": null,
+      "networkProbe": {
+        "status": "SKIPPED_OFFLINE (Run with --probe-network to test live HTTP status)",
+        "httpStatus": null
+      }
+    },
+    {
+      "rowNumber": 7,
+      "characterId": "stinkfly",
+      "characterName": "Stinkfly",
+      "species": "Lepidopterran",
+      "role": "Specialist",
+      "rarity": "Common",
+      "excelImageUrl": "https://www.wikihow.com/images/thumb/5/52/All-Ben-10-Aliens-Step-6.jpg/728px-All-Ben-10-Aliens-Step-6.jpg.webp",
+      "fallbackImageUrl": "/images/aliens/stinkfly.svg",
+      "localFallbackExists": true,
+      "firebaseStoragePath": "characters/stinkfly.webp",
+      "urlSyntaxValid": true,
+      "duplicateId": false,
+      "duplicateName": false,
+      "hashCollisionWith": null,
+      "networkProbe": {
+        "status": "SKIPPED_OFFLINE (Run with --probe-network to test live HTTP status)",
+        "httpStatus": null
+      }
+    },
+    {
+      "rowNumber": 8,
+      "characterId": "ripjaws",
+      "characterName": "Ripjaws",
+      "species": "Piscciss Volann",
+      "role": "Brawler",
+      "rarity": "Common",
+      "excelImageUrl": "https://www.wikihow.com/images/thumb/4/45/All-Ben-10-Aliens-Step-7.jpg/728px-All-Ben-10-Aliens-Step-7.jpg.webp",
+      "fallbackImageUrl": "/images/aliens/ripjaws.svg",
+      "localFallbackExists": true,
+      "firebaseStoragePath": "characters/ripjaws.webp",
+      "urlSyntaxValid": true,
+      "duplicateId": false,
+      "duplicateName": false,
+      "hashCollisionWith": null,
+      "networkProbe": {
+        "status": "SKIPPED_OFFLINE (Run with --probe-network to test live HTTP status)",
+        "httpStatus": null
+      }
+    },
+    {
+      "rowNumber": 9,
+      "characterId": "upgrade",
+      "characterName": "Upgrade",
+      "species": "Galvanic Mechomorph",
+      "role": "Specialist",
+      "rarity": "Epic",
+      "excelImageUrl": "https://www.wikihow.com/images/thumb/f/ff/All-Ben-10-Aliens-Step-8.jpg/728px-All-Ben-10-Aliens-Step-8.jpg.webp",
+      "fallbackImageUrl": "/images/aliens/upgrade.svg",
+      "localFallbackExists": true,
+      "firebaseStoragePath": "characters/upgrade.webp",
+      "urlSyntaxValid": true,
+      "duplicateId": false,
+      "duplicateName": false,
+      "hashCollisionWith": null,
+      "networkProbe": {
+        "status": "SKIPPED_OFFLINE (Run with --probe-network to test live HTTP status)",
+        "httpStatus": null
+      }
+    },
+    {
+      "rowNumber": 10,
+      "characterId": "ghostfreak",
+      "characterName": "Ghostfreak",
+      "species": "Ectonurite",
+      "role": "Infiltrator",
+      "rarity": "Epic",
+      "excelImageUrl": "https://www.wikihow.com/images/thumb/8/83/All-Ben-10-Aliens-Step-9.jpg/728px-All-Ben-10-Aliens-Step-9.jpg.webp",
+      "fallbackImageUrl": "/images/aliens/ghostfreak.svg",
+      "localFallbackExists": true,
+      "firebaseStoragePath": "characters/ghostfreak.webp",
+      "urlSyntaxValid": true,
+      "duplicateId": false,
+      "duplicateName": false,
+      "hashCollisionWith": null,
+      "networkProbe": {
+        "status": "SKIPPED_OFFLINE (Run with --probe-network to test live HTTP status)",
+        "httpStatus": null
+      }
+    },
+    {
+      "rowNumber": 11,
+      "characterId": "four-arms",
+      "characterName": "Four Arms",
+      "species": "Tetramand",
+      "role": "Brawler",
+      "rarity": "Epic",
+      "excelImageUrl": "https://www.wikihow.com/images/thumb/8/8a/All-Ben-10-Aliens-Step-10.jpg/728px-All-Ben-10-Aliens-Step-10.jpg.webp",
+      "fallbackImageUrl": "/images/aliens/four-arms.svg",
+      "localFallbackExists": true,
+      "firebaseStoragePath": "characters/four-arms.webp",
+      "urlSyntaxValid": true,
+      "duplicateId": false,
+      "duplicateName": false,
+      "hashCollisionWith": null,
+      "networkProbe": {
+        "status": "SKIPPED_OFFLINE (Run with --probe-network to test live HTTP status)",
+        "httpStatus": null
+      }
+    },
+    {
+      "rowNumber": 12,
+      "characterId": "cannonbolt",
+      "characterName": "Cannonbolt",
+      "species": "Arburian Pelarota",
+      "role": "Tank",
+      "rarity": "Epic",
+      "excelImageUrl": "https://www.wikihow.com/images/thumb/2/26/All-Ben-10-Aliens-Step-11.jpg/728px-All-Ben-10-Aliens-Step-11.jpg.webp",
+      "fallbackImageUrl": "/images/aliens/cannonbolt.svg",
+      "localFallbackExists": true,
+      "firebaseStoragePath": "characters/cannonbolt.webp",
+      "urlSyntaxValid": true,
+      "duplicateId": false,
+      "duplicateName": false,
+      "hashCollisionWith": null,
+      "networkProbe": {
+        "status": "SKIPPED_OFFLINE (Run with --probe-network to test live HTTP status)",
+        "httpStatus": null
+      }
+    },
+    {
+      "rowNumber": 13,
+      "characterId": "wildvine",
+      "characterName": "Wildvine",
+      "species": "Florauna",
+      "role": "Controller",
+      "rarity": "Rare",
+      "excelImageUrl": "https://www.wikihow.com/images/thumb/a/aa/All-Ben-10-Aliens-Step-12.jpg/728px-All-Ben-10-Aliens-Step-12.jpg.webp",
+      "fallbackImageUrl": "/images/aliens/wildvine.svg",
+      "localFallbackExists": true,
+      "firebaseStoragePath": "characters/wildvine.webp",
+      "urlSyntaxValid": true,
+      "duplicateId": false,
+      "duplicateName": false,
+      "hashCollisionWith": null,
+      "networkProbe": {
+        "status": "SKIPPED_OFFLINE (Run with --probe-network to test live HTTP status)",
+        "httpStatus": null
+      }
+    },
+    {
+      "rowNumber": 14,
+      "characterId": "spitter",
+      "characterName": "Spitter",
+      "species": "Spheroid",
+      "role": "Blaster",
+      "rarity": "Common",
+      "excelImageUrl": "https://www.wikihow.com/images/thumb/8/87/All-Ben-10-Aliens-Step-13.jpg/728px-All-Ben-10-Aliens-Step-13.jpg.webp",
+      "fallbackImageUrl": "/images/aliens/spitter.svg",
+      "localFallbackExists": true,
+      "firebaseStoragePath": "characters/spitter.webp",
+      "urlSyntaxValid": true,
+      "duplicateId": false,
+      "duplicateName": false,
+      "hashCollisionWith": null,
+      "networkProbe": {
+        "status": "SKIPPED_OFFLINE (Run with --probe-network to test live HTTP status)",
+        "httpStatus": null
+      }
+    },
+    {
+      "rowNumber": 15,
+      "characterId": "buzzshock",
+      "characterName": "Buzzshock",
+      "species": "Nosedeenian",
+      "role": "Speedster",
+      "rarity": "Rare",
+      "excelImageUrl": "https://www.wikihow.com/images/thumb/0/04/All-Ben-10-Aliens-Step-14.jpg/728px-All-Ben-10-Aliens-Step-14.jpg.webp",
+      "fallbackImageUrl": "/images/aliens/buzzshock.svg",
+      "localFallbackExists": true,
+      "firebaseStoragePath": "characters/buzzshock.webp",
+      "urlSyntaxValid": true,
+      "duplicateId": false,
+      "duplicateName": false,
+      "hashCollisionWith": null,
+      "networkProbe": {
+        "status": "SKIPPED_OFFLINE (Run with --probe-network to test live HTTP status)",
+        "httpStatus": null
+      }
+    },
+    {
+      "rowNumber": 16,
+      "characterId": "arctiguana",
+      "characterName": "Arctiguana",
+      "species": "Polar Manzardill",
+      "role": "Controller",
+      "rarity": "Rare",
+      "excelImageUrl": "https://www.wikihow.com/images/thumb/1/19/All-Ben-10-Aliens-Step-15.jpg/728px-All-Ben-10-Aliens-Step-15.jpg.webp",
+      "fallbackImageUrl": "/images/aliens/arctiguana.svg",
+      "localFallbackExists": true,
+      "firebaseStoragePath": "characters/arctiguana.webp",
+      "urlSyntaxValid": true,
+      "duplicateId": false,
+      "duplicateName": false,
+      "hashCollisionWith": null,
+      "networkProbe": {
+        "status": "SKIPPED_OFFLINE (Run with --probe-network to test live HTTP status)",
+        "httpStatus": null
+      }
+    },
+    {
+      "rowNumber": 17,
+      "characterId": "blitzwolfer",
+      "characterName": "Blitzwolfer",
+      "species": "Loboan",
+      "role": "Brawler",
+      "rarity": "Rare",
+      "excelImageUrl": "https://www.wikihow.com/images/thumb/8/86/All-Ben-10-Aliens-Step-16.jpg/728px-All-Ben-10-Aliens-Step-16.jpg.webp",
+      "fallbackImageUrl": "/images/aliens/blitzwolfer.svg",
+      "localFallbackExists": true,
+      "firebaseStoragePath": "characters/blitzwolfer.webp",
+      "urlSyntaxValid": true,
+      "duplicateId": false,
+      "duplicateName": false,
+      "hashCollisionWith": null,
+      "networkProbe": {
+        "status": "SKIPPED_OFFLINE (Run with --probe-network to test live HTTP status)",
+        "httpStatus": null
+      }
+    },
+    {
+      "rowNumber": 18,
+      "characterId": "upchuck",
+      "characterName": "Upchuck",
+      "species": "Gourmand",
+      "role": "Blaster",
+      "rarity": "Rare",
+      "excelImageUrl": "https://www.wikihow.com/images/thumb/7/76/All-Ben-10-Aliens-Step-17.jpg/728px-All-Ben-10-Aliens-Step-17.jpg.webp",
+      "fallbackImageUrl": "/images/aliens/upchuck.svg",
+      "localFallbackExists": true,
+      "firebaseStoragePath": "characters/upchuck.webp",
+      "urlSyntaxValid": true,
+      "duplicateId": false,
+      "duplicateName": false,
+      "hashCollisionWith": "xlr8",
+      "networkProbe": {
+        "status": "SKIPPED_OFFLINE (Run with --probe-network to test live HTTP status)",
+        "httpStatus": null
+      }
+    },
+    {
+      "rowNumber": 19,
+      "characterId": "snare-oh",
+      "characterName": "Snare-Oh",
+      "species": "Thep Khufan",
+      "role": "Controller",
+      "rarity": "Rare",
+      "excelImageUrl": "https://www.wikihow.com/images/thumb/e/e0/All-Ben-10-Aliens-Step-18.jpg/728px-All-Ben-10-Aliens-Step-18.jpg.webp",
+      "fallbackImageUrl": "/images/aliens/snare-oh.svg",
+      "localFallbackExists": true,
+      "firebaseStoragePath": "characters/snare-oh.webp",
+      "urlSyntaxValid": true,
+      "duplicateId": false,
+      "duplicateName": false,
+      "hashCollisionWith": null,
+      "networkProbe": {
+        "status": "SKIPPED_OFFLINE (Run with --probe-network to test live HTTP status)",
+        "httpStatus": null
+      }
+    },
+    {
+      "rowNumber": 20,
+      "characterId": "frankenstrike",
+      "characterName": "Frankenstrike",
+      "species": "Transylian",
+      "role": "Brawler",
+      "rarity": "Epic",
+      "excelImageUrl": "https://www.wikihow.com/images/thumb/5/55/All-Ben-10-Aliens-Step-19.jpg/728px-All-Ben-10-Aliens-Step-19.jpg.webp",
+      "fallbackImageUrl": "/images/aliens/frankenstrike.svg",
+      "localFallbackExists": true,
+      "firebaseStoragePath": "characters/frankenstrike.webp",
+      "urlSyntaxValid": true,
+      "duplicateId": false,
+      "duplicateName": false,
+      "hashCollisionWith": null,
+      "networkProbe": {
+        "status": "SKIPPED_OFFLINE (Run with --probe-network to test live HTTP status)",
+        "httpStatus": null
+      }
+    },
+    {
+      "rowNumber": 21,
+      "characterId": "ditto",
+      "characterName": "Ditto",
+      "species": "Splixson",
+      "role": "Specialist",
+      "rarity": "Common",
+      "excelImageUrl": "https://www.wikihow.com/images/thumb/c/cf/All-Ben-10-Aliens-Step-20.jpg/728px-All-Ben-10-Aliens-Step-20.jpg.webp",
+      "fallbackImageUrl": "/images/aliens/ditto.svg",
+      "localFallbackExists": true,
+      "firebaseStoragePath": "characters/ditto.webp",
+      "urlSyntaxValid": true,
+      "duplicateId": false,
+      "duplicateName": false,
+      "hashCollisionWith": null,
+      "networkProbe": {
+        "status": "SKIPPED_OFFLINE (Run with --probe-network to test live HTTP status)",
+        "httpStatus": null
+      }
+    },
+    {
+      "rowNumber": 22,
+      "characterId": "eye-guy",
+      "characterName": "Eye Guy",
+      "species": "Opticoid",
+      "role": "Blaster",
+      "rarity": "Rare",
+      "excelImageUrl": "https://www.wikihow.com/images/thumb/8/88/All-Ben-10-Aliens-Step-21.jpg/728px-All-Ben-10-Aliens-Step-21.jpg.webp",
+      "fallbackImageUrl": "/images/aliens/eye-guy.svg",
+      "localFallbackExists": true,
+      "firebaseStoragePath": "characters/eye-guy.webp",
+      "urlSyntaxValid": true,
+      "duplicateId": false,
+      "duplicateName": false,
+      "hashCollisionWith": null,
+      "networkProbe": {
+        "status": "SKIPPED_OFFLINE (Run with --probe-network to test live HTTP status)",
+        "httpStatus": null
+      }
+    },
+    {
+      "rowNumber": 23,
+      "characterId": "way-big",
+      "characterName": "Way Big",
+      "species": "To'kustar",
+      "role": "Titan",
+      "rarity": "Legendary",
+      "excelImageUrl": "https://www.wikihow.com/images/thumb/0/00/All-Ben-10-Aliens-Step-22.jpg/728px-All-Ben-10-Aliens-Step-22.jpg.webp",
+      "fallbackImageUrl": "/images/aliens/way-big.svg",
+      "localFallbackExists": true,
+      "firebaseStoragePath": "characters/way-big.webp",
+      "urlSyntaxValid": true,
+      "duplicateId": false,
+      "duplicateName": false,
+      "hashCollisionWith": null,
+      "networkProbe": {
+        "status": "SKIPPED_OFFLINE (Run with --probe-network to test live HTTP status)",
+        "httpStatus": null
+      }
+    },
+    {
+      "rowNumber": 24,
+      "characterId": "swampfire",
+      "characterName": "Swampfire",
+      "species": "Methanosian",
+      "role": "All-Rounder",
+      "rarity": "Legendary",
+      "excelImageUrl": "https://www.wikihow.com/images/thumb/d/de/All-Ben-10-Aliens-Step-23.jpg/728px-All-Ben-10-Aliens-Step-23.jpg.webp",
+      "fallbackImageUrl": "/images/aliens/swampfire.svg",
+      "localFallbackExists": true,
+      "firebaseStoragePath": "characters/swampfire.webp",
+      "urlSyntaxValid": true,
+      "duplicateId": false,
+      "duplicateName": false,
+      "hashCollisionWith": null,
+      "networkProbe": {
+        "status": "SKIPPED_OFFLINE (Run with --probe-network to test live HTTP status)",
+        "httpStatus": null
+      }
+    },
+    {
+      "rowNumber": 25,
+      "characterId": "echo-echo",
+      "characterName": "Echo Echo",
+      "species": "Sonorosian",
+      "role": "Controller",
+      "rarity": "Rare",
+      "excelImageUrl": "https://www.wikihow.com/images/thumb/8/82/All-Ben-10-Aliens-Step-24.jpg/728px-All-Ben-10-Aliens-Step-24.jpg.webp",
+      "fallbackImageUrl": "/images/aliens/echo-echo.svg",
+      "localFallbackExists": true,
+      "firebaseStoragePath": "characters/echo-echo.webp",
+      "urlSyntaxValid": true,
+      "duplicateId": false,
+      "duplicateName": false,
+      "hashCollisionWith": null,
+      "networkProbe": {
+        "status": "SKIPPED_OFFLINE (Run with --probe-network to test live HTTP status)",
+        "httpStatus": null
+      }
+    },
+    {
+      "rowNumber": 26,
+      "characterId": "humungousaur",
+      "characterName": "Humungousaur",
+      "species": "Vaxasaurian",
+      "role": "Titan",
+      "rarity": "Epic",
+      "excelImageUrl": "https://www.wikihow.com/images/thumb/9/96/All-Ben-10-Aliens-Step-25.jpg/728px-All-Ben-10-Aliens-Step-25.jpg.webp",
+      "fallbackImageUrl": "/images/aliens/humungousaur.svg",
+      "localFallbackExists": true,
+      "firebaseStoragePath": "characters/humungousaur.webp",
+      "urlSyntaxValid": true,
+      "duplicateId": false,
+      "duplicateName": false,
+      "hashCollisionWith": null,
+      "networkProbe": {
+        "status": "SKIPPED_OFFLINE (Run with --probe-network to test live HTTP status)",
+        "httpStatus": null
+      }
+    },
+    {
+      "rowNumber": 27,
+      "characterId": "jetray",
+      "characterName": "Jetray",
+      "species": "Aerophibian",
+      "role": "Speedster",
+      "rarity": "Epic",
+      "excelImageUrl": "https://www.wikihow.com/images/thumb/1/18/All-Ben-10-Aliens-Step-26.jpg/728px-All-Ben-10-Aliens-Step-26.jpg.webp",
+      "fallbackImageUrl": "/images/aliens/jetray.svg",
+      "localFallbackExists": true,
+      "firebaseStoragePath": "characters/jetray.webp",
+      "urlSyntaxValid": true,
+      "duplicateId": false,
+      "duplicateName": false,
+      "hashCollisionWith": null,
+      "networkProbe": {
+        "status": "SKIPPED_OFFLINE (Run with --probe-network to test live HTTP status)",
+        "httpStatus": null
+      }
+    },
+    {
+      "rowNumber": 28,
+      "characterId": "big-chill",
+      "characterName": "Big Chill",
+      "species": "Necrofriggian",
+      "role": "Infiltrator",
+      "rarity": "Epic",
+      "excelImageUrl": "https://www.wikihow.com/images/thumb/7/7d/All-Ben-10-Aliens-Step-27.jpg/728px-All-Ben-10-Aliens-Step-27.jpg.webp",
+      "fallbackImageUrl": "/images/aliens/big-chill.svg",
+      "localFallbackExists": true,
+      "firebaseStoragePath": "characters/big-chill.webp",
+      "urlSyntaxValid": true,
+      "duplicateId": false,
+      "duplicateName": false,
+      "hashCollisionWith": null,
+      "networkProbe": {
+        "status": "SKIPPED_OFFLINE (Run with --probe-network to test live HTTP status)",
+        "httpStatus": null
+      }
+    },
+    {
+      "rowNumber": 29,
+      "characterId": "chromastone",
+      "characterName": "Chromastone",
+      "species": "Crystalsapien",
+      "role": "Blaster",
+      "rarity": "Epic",
+      "excelImageUrl": "https://www.wikihow.com/images/thumb/c/c5/All-Ben-10-Aliens-Step-28.jpg/728px-All-Ben-10-Aliens-Step-28.jpg.webp",
+      "fallbackImageUrl": "/images/aliens/chromastone.svg",
+      "localFallbackExists": true,
+      "firebaseStoragePath": "characters/chromastone.webp",
+      "urlSyntaxValid": true,
+      "duplicateId": false,
+      "duplicateName": false,
+      "hashCollisionWith": null,
+      "networkProbe": {
+        "status": "SKIPPED_OFFLINE (Run with --probe-network to test live HTTP status)",
+        "httpStatus": null
+      }
+    },
+    {
+      "rowNumber": 30,
+      "characterId": "brainstorm",
+      "characterName": "Brainstorm",
+      "species": "Cerebrocrustacean",
+      "role": "Tactician",
+      "rarity": "Epic",
+      "excelImageUrl": "https://www.wikihow.com/images/thumb/d/d5/All-Ben-10-Aliens-Step-29.jpg/728px-All-Ben-10-Aliens-Step-29.jpg.webp",
+      "fallbackImageUrl": "/images/aliens/brainstorm.svg",
+      "localFallbackExists": true,
+      "firebaseStoragePath": "characters/brainstorm.webp",
+      "urlSyntaxValid": true,
+      "duplicateId": false,
+      "duplicateName": false,
+      "hashCollisionWith": null,
+      "networkProbe": {
+        "status": "SKIPPED_OFFLINE (Run with --probe-network to test live HTTP status)",
+        "httpStatus": null
+      }
+    },
+    {
+      "rowNumber": 31,
+      "characterId": "spidermonkey",
+      "characterName": "Spidermonkey",
+      "species": "Arachnichimp",
+      "role": "Speedster",
+      "rarity": "Rare",
+      "excelImageUrl": "https://www.wikihow.com/images/thumb/8/87/All-Ben-10-Aliens-Step-30.jpg/728px-All-Ben-10-Aliens-Step-30.jpg.webp",
+      "fallbackImageUrl": "/images/aliens/spidermonkey.svg",
+      "localFallbackExists": true,
+      "firebaseStoragePath": "characters/spidermonkey.webp",
+      "urlSyntaxValid": true,
+      "duplicateId": false,
+      "duplicateName": false,
+      "hashCollisionWith": "spitter",
+      "networkProbe": {
+        "status": "SKIPPED_OFFLINE (Run with --probe-network to test live HTTP status)",
+        "httpStatus": null
+      }
+    },
+    {
+      "rowNumber": 32,
+      "characterId": "goop",
+      "characterName": "Goop",
+      "species": "Polymorph",
+      "role": "Specialist",
+      "rarity": "Rare",
+      "excelImageUrl": "https://www.wikihow.com/images/thumb/1/19/All-Ben-10-Aliens-Step-31.jpg/728px-All-Ben-10-Aliens-Step-31.jpg.webp",
+      "fallbackImageUrl": "/images/aliens/goop.svg",
+      "localFallbackExists": true,
+      "firebaseStoragePath": "characters/goop.webp",
+      "urlSyntaxValid": true,
+      "duplicateId": false,
+      "duplicateName": false,
+      "hashCollisionWith": "arctiguana",
+      "networkProbe": {
+        "status": "SKIPPED_OFFLINE (Run with --probe-network to test live HTTP status)",
+        "httpStatus": null
+      }
+    },
+    {
+      "rowNumber": 33,
+      "characterId": "alien-x",
+      "characterName": "Alien X",
+      "species": "Celestialsapien",
+      "role": "Titan",
+      "rarity": "Legendary",
+      "excelImageUrl": "https://www.wikihow.com/images/thumb/e/e9/All-Ben-10-Aliens-Step-32.jpg/728px-All-Ben-10-Aliens-Step-32.jpg.webp",
+      "fallbackImageUrl": "/images/aliens/alien-x.svg",
+      "localFallbackExists": true,
+      "firebaseStoragePath": "characters/alien-x.webp",
+      "urlSyntaxValid": true,
+      "duplicateId": false,
+      "duplicateName": false,
+      "hashCollisionWith": null,
+      "networkProbe": {
+        "status": "SKIPPED_OFFLINE (Run with --probe-network to test live HTTP status)",
+        "httpStatus": null
+      }
+    },
+    {
+      "rowNumber": 34,
+      "characterId": "upchuck-murk",
+      "characterName": "Upchuck (Murk)",
+      "species": "Murk Gourmand",
+      "role": "Blaster",
+      "rarity": "Rare",
+      "excelImageUrl": "https://www.wikihow.com/images/thumb/f/f5/All-Ben-10-Aliens-Step-33.jpg/728px-All-Ben-10-Aliens-Step-33.jpg.webp",
+      "fallbackImageUrl": "/images/aliens/upchuck-murk.svg",
+      "localFallbackExists": true,
+      "firebaseStoragePath": "characters/upchuck-murk.webp",
+      "urlSyntaxValid": true,
+      "duplicateId": false,
+      "duplicateName": false,
+      "hashCollisionWith": null,
+      "networkProbe": {
+        "status": "SKIPPED_OFFLINE (Run with --probe-network to test live HTTP status)",
+        "httpStatus": null
+      }
+    },
+    {
+      "rowNumber": 35,
+      "characterId": "nanomech",
+      "characterName": "Nanomech",
+      "species": "Nanochip Hybrid",
+      "role": "Infiltrator",
+      "rarity": "Rare",
+      "excelImageUrl": "https://www.wikihow.com/images/thumb/7/76/All-Ben-10-Aliens-Step-34.jpg/728px-All-Ben-10-Aliens-Step-34.jpg.webp",
+      "fallbackImageUrl": "/images/aliens/nanomech.svg",
+      "localFallbackExists": true,
+      "firebaseStoragePath": "characters/nanomech.webp",
+      "urlSyntaxValid": true,
+      "duplicateId": false,
+      "duplicateName": false,
+      "hashCollisionWith": "xlr8",
+      "networkProbe": {
+        "status": "SKIPPED_OFFLINE (Run with --probe-network to test live HTTP status)",
+        "httpStatus": null
+      }
+    },
+    {
+      "rowNumber": 36,
+      "characterId": "lodestar",
+      "characterName": "Lodestar",
+      "species": "Biot-Savartian",
+      "role": "Controller",
+      "rarity": "Epic",
+      "excelImageUrl": "https://www.wikihow.com/images/thumb/3/3f/All-Ben-10-Aliens-Step-35.jpg/728px-All-Ben-10-Aliens-Step-35.jpg.webp",
+      "fallbackImageUrl": "/images/aliens/lodestar.svg",
+      "localFallbackExists": true,
+      "firebaseStoragePath": "characters/lodestar.webp",
+      "urlSyntaxValid": true,
+      "duplicateId": false,
+      "duplicateName": false,
+      "hashCollisionWith": null,
+      "networkProbe": {
+        "status": "SKIPPED_OFFLINE (Run with --probe-network to test live HTTP status)",
+        "httpStatus": null
+      }
+    },
+    {
+      "rowNumber": 37,
+      "characterId": "rath",
+      "characterName": "Rath",
+      "species": "Appoplexian",
+      "role": "Brawler",
+      "rarity": "Epic",
+      "excelImageUrl": "https://www.wikihow.com/images/thumb/9/9e/All-Ben-10-Aliens-Step-36.jpg/728px-All-Ben-10-Aliens-Step-36.jpg.webp",
+      "fallbackImageUrl": "/images/aliens/rath.svg",
+      "localFallbackExists": true,
+      "firebaseStoragePath": "characters/rath.webp",
+      "urlSyntaxValid": true,
+      "duplicateId": false,
+      "duplicateName": false,
+      "hashCollisionWith": null,
+      "networkProbe": {
+        "status": "SKIPPED_OFFLINE (Run with --probe-network to test live HTTP status)",
+        "httpStatus": null
+      }
+    },
+    {
+      "rowNumber": 38,
+      "characterId": "waterhazard",
+      "characterName": "Waterhazard",
+      "species": "Orishan",
+      "role": "Blaster",
+      "rarity": "Rare",
+      "excelImageUrl": "https://www.wikihow.com/images/thumb/0/00/All-Ben-10-Aliens-Step-37.jpg/728px-All-Ben-10-Aliens-Step-37.jpg.webp",
+      "fallbackImageUrl": "/images/aliens/waterhazard.svg",
+      "localFallbackExists": true,
+      "firebaseStoragePath": "characters/waterhazard.webp",
+      "urlSyntaxValid": true,
+      "duplicateId": false,
+      "duplicateName": false,
+      "hashCollisionWith": "way-big",
+      "networkProbe": {
+        "status": "SKIPPED_OFFLINE (Run with --probe-network to test live HTTP status)",
+        "httpStatus": null
+      }
+    },
+    {
+      "rowNumber": 39,
+      "characterId": "ampfibian",
+      "characterName": "Ampfibian",
+      "species": "Amperi",
+      "role": "Specialist",
+      "rarity": "Epic",
+      "excelImageUrl": "https://www.wikihow.com/images/thumb/3/3d/All-Ben-10-Aliens-Step-38.jpg/728px-All-Ben-10-Aliens-Step-38.jpg.webp",
+      "fallbackImageUrl": "/images/aliens/ampfibian.svg",
+      "localFallbackExists": true,
+      "firebaseStoragePath": "characters/ampfibian.webp",
+      "urlSyntaxValid": true,
+      "duplicateId": false,
+      "duplicateName": false,
+      "hashCollisionWith": "wildmutt",
+      "networkProbe": {
+        "status": "SKIPPED_OFFLINE (Run with --probe-network to test live HTTP status)",
+        "httpStatus": null
+      }
+    },
+    {
+      "rowNumber": 40,
+      "characterId": "armodrillo",
+      "characterName": "Armodrillo",
+      "species": "Talpaedan",
+      "role": "Tank",
+      "rarity": "Epic",
+      "excelImageUrl": "https://www.wikihow.com/images/thumb/c/ca/All-Ben-10-Aliens-Step-39.jpg/728px-All-Ben-10-Aliens-Step-39.jpg.webp",
+      "fallbackImageUrl": "/images/aliens/armodrillo.svg",
+      "localFallbackExists": true,
+      "firebaseStoragePath": "characters/armodrillo.webp",
+      "urlSyntaxValid": true,
+      "duplicateId": false,
+      "duplicateName": false,
+      "hashCollisionWith": null,
+      "networkProbe": {
+        "status": "SKIPPED_OFFLINE (Run with --probe-network to test live HTTP status)",
+        "httpStatus": null
+      }
+    },
+    {
+      "rowNumber": 41,
+      "characterId": "terraspin",
+      "characterName": "Terraspin",
+      "species": "Geochelone Aerio",
+      "role": "Controller",
+      "rarity": "Rare",
+      "excelImageUrl": "https://www.wikihow.com/images/thumb/7/7a/All-Ben-10-Aliens-Step-40.jpg/728px-All-Ben-10-Aliens-Step-40.jpg.webp",
+      "fallbackImageUrl": "/images/aliens/terraspin.svg",
+      "localFallbackExists": true,
+      "firebaseStoragePath": "characters/terraspin.webp",
+      "urlSyntaxValid": true,
+      "duplicateId": false,
+      "duplicateName": false,
+      "hashCollisionWith": null,
+      "networkProbe": {
+        "status": "SKIPPED_OFFLINE (Run with --probe-network to test live HTTP status)",
+        "httpStatus": null
+      }
+    },
+    {
+      "rowNumber": 42,
+      "characterId": "nrg",
+      "characterName": "NRG",
+      "species": "Prypiatosian-B",
+      "role": "Tank",
+      "rarity": "Epic",
+      "excelImageUrl": "https://www.wikihow.com/images/thumb/e/e2/All-Ben-10-Aliens-Step-41.jpg/728px-All-Ben-10-Aliens-Step-41.jpg.webp",
+      "fallbackImageUrl": "/images/aliens/nrg.svg",
+      "localFallbackExists": true,
+      "firebaseStoragePath": "characters/nrg.webp",
+      "urlSyntaxValid": true,
+      "duplicateId": false,
+      "duplicateName": false,
+      "hashCollisionWith": null,
+      "networkProbe": {
+        "status": "SKIPPED_OFFLINE (Run with --probe-network to test live HTTP status)",
+        "httpStatus": null
+      }
+    },
+    {
+      "rowNumber": 43,
+      "characterId": "fasttrack",
+      "characterName": "Fasttrack",
+      "species": "Citrakayah",
+      "role": "Speedster",
+      "rarity": "Rare",
+      "excelImageUrl": "https://www.wikihow.com/images/thumb/2/25/All-Ben-10-Aliens-Step-42.jpg/728px-All-Ben-10-Aliens-Step-42.jpg.webp",
+      "fallbackImageUrl": "/images/aliens/fasttrack.svg",
+      "localFallbackExists": true,
+      "firebaseStoragePath": "characters/fasttrack.webp",
+      "urlSyntaxValid": true,
+      "duplicateId": false,
+      "duplicateName": false,
+      "hashCollisionWith": null,
+      "networkProbe": {
+        "status": "SKIPPED_OFFLINE (Run with --probe-network to test live HTTP status)",
+        "httpStatus": null
+      }
+    },
+    {
+      "rowNumber": 44,
+      "characterId": "chamalien",
+      "characterName": "Chamalien",
+      "species": "Merlinisapien",
+      "role": "Infiltrator",
+      "rarity": "Common",
+      "excelImageUrl": "https://www.wikihow.com/images/thumb/6/61/All-Ben-10-Aliens-Step-43.jpg/728px-All-Ben-10-Aliens-Step-43.jpg.webp",
+      "fallbackImageUrl": "/images/aliens/chamalien.svg",
+      "localFallbackExists": true,
+      "firebaseStoragePath": "characters/chamalien.webp",
+      "urlSyntaxValid": true,
+      "duplicateId": false,
+      "duplicateName": false,
+      "hashCollisionWith": null,
+      "networkProbe": {
+        "status": "SKIPPED_OFFLINE (Run with --probe-network to test live HTTP status)",
+        "httpStatus": null
+      }
+    },
+    {
+      "rowNumber": 45,
+      "characterId": "eatle",
+      "characterName": "Eatle",
+      "species": "Oryctini",
+      "role": "Brawler",
+      "rarity": "Rare",
+      "excelImageUrl": "https://www.wikihow.com/images/thumb/0/06/All-Ben-10-Aliens-Step-44.jpg/728px-All-Ben-10-Aliens-Step-44.jpg.webp",
+      "fallbackImageUrl": "/images/aliens/eatle.svg",
+      "localFallbackExists": true,
+      "firebaseStoragePath": "characters/eatle.webp",
+      "urlSyntaxValid": true,
+      "duplicateId": false,
+      "duplicateName": false,
+      "hashCollisionWith": null,
+      "networkProbe": {
+        "status": "SKIPPED_OFFLINE (Run with --probe-network to test live HTTP status)",
+        "httpStatus": null
+      }
+    },
+    {
+      "rowNumber": 46,
+      "characterId": "clockwork",
+      "characterName": "Clockwork",
+      "species": "Chronosapien",
+      "role": "Tactician",
+      "rarity": "Legendary",
+      "excelImageUrl": "https://www.wikihow.com/images/thumb/a/a5/All-Ben-10-Aliens-Step-45.jpg/728px-All-Ben-10-Aliens-Step-45.jpg.webp",
+      "fallbackImageUrl": "/images/aliens/clockwork.svg",
+      "localFallbackExists": true,
+      "firebaseStoragePath": "characters/clockwork.webp",
+      "urlSyntaxValid": true,
+      "duplicateId": false,
+      "duplicateName": false,
+      "hashCollisionWith": null,
+      "networkProbe": {
+        "status": "SKIPPED_OFFLINE (Run with --probe-network to test live HTTP status)",
+        "httpStatus": null
+      }
+    },
+    {
+      "rowNumber": 47,
+      "characterId": "juryrigg",
+      "characterName": "Juryrigg",
+      "species": "Planchakule",
+      "role": "Specialist",
+      "rarity": "Common",
+      "excelImageUrl": "https://www.wikihow.com/images/thumb/a/a9/All-Ben-10-Aliens-Step-46.jpg/728px-All-Ben-10-Aliens-Step-46.jpg.webp",
+      "fallbackImageUrl": "/images/aliens/juryrigg.svg",
+      "localFallbackExists": true,
+      "firebaseStoragePath": "characters/juryrigg.webp",
+      "urlSyntaxValid": true,
+      "duplicateId": false,
+      "duplicateName": false,
+      "hashCollisionWith": null,
+      "networkProbe": {
+        "status": "SKIPPED_OFFLINE (Run with --probe-network to test live HTTP status)",
+        "httpStatus": null
+      }
+    },
+    {
+      "rowNumber": 48,
+      "characterId": "shocksquatch",
+      "characterName": "Shocksquatch",
+      "species": "Gimlinopithecus",
+      "role": "Brawler",
+      "rarity": "Epic",
+      "excelImageUrl": "https://www.wikihow.com/images/thumb/5/57/All-Ben-10-Aliens-Step-47.jpg/728px-All-Ben-10-Aliens-Step-47.jpg.webp",
+      "fallbackImageUrl": "/images/aliens/shocksquatch.svg",
+      "localFallbackExists": true,
+      "firebaseStoragePath": "characters/shocksquatch.webp",
+      "urlSyntaxValid": true,
+      "duplicateId": false,
+      "duplicateName": false,
+      "hashCollisionWith": null,
+      "networkProbe": {
+        "status": "SKIPPED_OFFLINE (Run with --probe-network to test live HTTP status)",
+        "httpStatus": null
+      }
+    },
+    {
+      "rowNumber": 49,
+      "characterId": "feedback",
+      "characterName": "Feedback",
+      "species": "Conductoid",
+      "role": "Blaster",
+      "rarity": "Legendary",
+      "excelImageUrl": "https://www.wikihow.com/images/thumb/3/3c/All-Ben-10-Aliens-Step-48.jpg/728px-All-Ben-10-Aliens-Step-48.jpg.webp",
+      "fallbackImageUrl": "/images/aliens/feedback.svg",
+      "localFallbackExists": true,
+      "firebaseStoragePath": "characters/feedback.webp",
+      "urlSyntaxValid": true,
+      "duplicateId": false,
+      "duplicateName": false,
+      "hashCollisionWith": null,
+      "networkProbe": {
+        "status": "SKIPPED_OFFLINE (Run with --probe-network to test live HTTP status)",
+        "httpStatus": null
+      }
+    },
+    {
+      "rowNumber": 50,
+      "characterId": "whampire",
+      "characterName": "Whampire",
+      "species": "Vladat",
+      "role": "Controller",
+      "rarity": "Epic",
+      "excelImageUrl": "https://www.wikihow.com/images/thumb/f/fb/All-Ben-10-Aliens-Step-63.jpg/728px-All-Ben-10-Aliens-Step-63.jpg.webp",
+      "fallbackImageUrl": "/images/aliens/whampire.svg",
+      "localFallbackExists": true,
+      "firebaseStoragePath": "characters/whampire.webp",
+      "urlSyntaxValid": true,
+      "duplicateId": false,
+      "duplicateName": false,
+      "hashCollisionWith": null,
+      "networkProbe": {
+        "status": "SKIPPED_OFFLINE (Run with --probe-network to test live HTTP status)",
+        "httpStatus": null
+      }
+    },
+    {
+      "rowNumber": 51,
+      "characterId": "gutrot",
+      "characterName": "Gutrot",
+      "species": "Chemical Lab",
+      "role": "Tactician",
+      "rarity": "Rare",
+      "excelImageUrl": "https://www.wikihow.com/images/thumb/d/de/All-Ben-10-Aliens-Step-62.jpg/728px-All-Ben-10-Aliens-Step-62.jpg.webp",
+      "fallbackImageUrl": "/images/aliens/gutrot.svg",
+      "localFallbackExists": true,
+      "firebaseStoragePath": "characters/gutrot.webp",
+      "urlSyntaxValid": true,
+      "duplicateId": false,
+      "duplicateName": false,
+      "hashCollisionWith": "swampfire",
+      "networkProbe": {
+        "status": "SKIPPED_OFFLINE (Run with --probe-network to test live HTTP status)",
+        "httpStatus": null
+      }
+    },
+    {
+      "rowNumber": 52,
+      "characterId": "atomix",
+      "characterName": "Atomix",
+      "species": "Nucleosapien",
+      "role": "Titan",
+      "rarity": "Legendary",
+      "excelImageUrl": "https://www.wikihow.com/images/thumb/c/c7/All-Ben-10-Aliens-Step-61.jpg/728px-All-Ben-10-Aliens-Step-61.jpg.webp",
+      "fallbackImageUrl": "/images/aliens/atomix.svg",
+      "localFallbackExists": true,
+      "firebaseStoragePath": "characters/atomix.webp",
+      "urlSyntaxValid": true,
+      "duplicateId": false,
+      "duplicateName": false,
+      "hashCollisionWith": null,
+      "networkProbe": {
+        "status": "SKIPPED_OFFLINE (Run with --probe-network to test live HTTP status)",
+        "httpStatus": null
+      }
+    },
+    {
+      "rowNumber": 53,
+      "characterId": "bullfrag",
+      "characterName": "Bullfrag",
+      "species": "Incursean",
+      "role": "Infiltrator",
+      "rarity": "Rare",
+      "excelImageUrl": "https://www.wikihow.com/images/thumb/6/68/All-Ben-10-Aliens-Step-60.jpg/728px-All-Ben-10-Aliens-Step-60.jpg.webp",
+      "fallbackImageUrl": "/images/aliens/bullfrag.svg",
+      "localFallbackExists": true,
+      "firebaseStoragePath": "characters/bullfrag.webp",
+      "urlSyntaxValid": true,
+      "duplicateId": false,
+      "duplicateName": false,
+      "hashCollisionWith": null,
+      "networkProbe": {
+        "status": "SKIPPED_OFFLINE (Run with --probe-network to test live HTTP status)",
+        "httpStatus": null
+      }
+    },
+    {
+      "rowNumber": 54,
+      "characterId": "astrodactyl",
+      "characterName": "Astrodactyl",
+      "species": "Pturbosaurian",
+      "role": "Speedster",
+      "rarity": "Rare",
+      "excelImageUrl": "https://www.wikihow.com/images/thumb/5/5d/All-Ben-10-Aliens-Step-59.jpg/728px-All-Ben-10-Aliens-Step-59.jpg.webp",
+      "fallbackImageUrl": "/images/aliens/astrodactyl.svg",
+      "localFallbackExists": true,
+      "firebaseStoragePath": "characters/astrodactyl.webp",
+      "urlSyntaxValid": true,
+      "duplicateId": false,
+      "duplicateName": false,
+      "hashCollisionWith": null,
+      "networkProbe": {
+        "status": "SKIPPED_OFFLINE (Run with --probe-network to test live HTTP status)",
+        "httpStatus": null
+      }
+    },
+    {
+      "rowNumber": 55,
+      "characterId": "toepick",
+      "characterName": "Toepick",
+      "species": "Unknown",
+      "role": "Controller",
+      "rarity": "Rare",
+      "excelImageUrl": "https://www.wikihow.com/images/thumb/f/ff/All-Ben-10-Aliens-Step-58.jpg/728px-All-Ben-10-Aliens-Step-58.jpg.webp",
+      "fallbackImageUrl": "/images/aliens/toepick.svg",
+      "localFallbackExists": true,
+      "firebaseStoragePath": "characters/toepick.webp",
+      "urlSyntaxValid": true,
+      "duplicateId": false,
+      "duplicateName": false,
+      "hashCollisionWith": "upgrade",
+      "networkProbe": {
+        "status": "SKIPPED_OFFLINE (Run with --probe-network to test live HTTP status)",
+        "httpStatus": null
+      }
+    },
+    {
+      "rowNumber": 56,
+      "characterId": "kickin",
+      "characterName": "Kickin Hawk",
+      "species": "Kickin Hawk",
+      "role": "Brawler",
+      "rarity": "Epic",
+      "excelImageUrl": "https://www.wikihow.com/images/thumb/f/f2/All-Ben-10-Aliens-Step-57.jpg/728px-All-Ben-10-Aliens-Step-57.jpg.webp",
+      "fallbackImageUrl": "/images/aliens/kickin.svg",
+      "localFallbackExists": true,
+      "firebaseStoragePath": "characters/kickin.webp",
+      "urlSyntaxValid": true,
+      "duplicateId": false,
+      "duplicateName": false,
+      "hashCollisionWith": null,
+      "networkProbe": {
+        "status": "SKIPPED_OFFLINE (Run with --probe-network to test live HTTP status)",
+        "httpStatus": null
+      }
+    },
+    {
+      "rowNumber": 57,
+      "characterId": "the-worst",
+      "characterName": "The Worst",
+      "species": "Atrocian",
+      "role": "Tank",
+      "rarity": "Common",
+      "excelImageUrl": "https://www.wikihow.com/images/thumb/d/df/All-Ben-10-Aliens-Step-56.jpg/728px-All-Ben-10-Aliens-Step-56.jpg.webp",
+      "fallbackImageUrl": "/images/aliens/the-worst.svg",
+      "localFallbackExists": true,
+      "firebaseStoragePath": "characters/the-worst.webp",
+      "urlSyntaxValid": true,
+      "duplicateId": false,
+      "duplicateName": false,
+      "hashCollisionWith": null,
+      "networkProbe": {
+        "status": "SKIPPED_OFFLINE (Run with --probe-network to test live HTTP status)",
+        "httpStatus": null
+      }
+    },
+    {
+      "rowNumber": 58,
+      "characterId": "mole-stache",
+      "characterName": "Mole-Stache",
+      "species": "Mustache Mole",
+      "role": "Specialist",
+      "rarity": "Common",
+      "excelImageUrl": "https://www.wikihow.com/images/thumb/a/a1/All-Ben-10-Aliens-Step-55.jpg/728px-All-Ben-10-Aliens-Step-55.jpg.webp",
+      "fallbackImageUrl": "/images/aliens/mole-stache.svg",
+      "localFallbackExists": true,
+      "firebaseStoragePath": "characters/mole-stache.webp",
+      "urlSyntaxValid": true,
+      "duplicateId": false,
+      "duplicateName": false,
+      "hashCollisionWith": null,
+      "networkProbe": {
+        "status": "SKIPPED_OFFLINE (Run with --probe-network to test live HTTP status)",
+        "httpStatus": null
+      }
+    },
+    {
+      "rowNumber": 59,
+      "characterId": "pesky-dust",
+      "characterName": "Pesky Dust",
+      "species": "Nemuina",
+      "role": "Controller",
+      "rarity": "Rare",
+      "excelImageUrl": "https://www.wikihow.com/images/thumb/7/7b/All-Ben-10-Aliens-Step-54.jpg/728px-All-Ben-10-Aliens-Step-54.jpg.webp",
+      "fallbackImageUrl": "/images/aliens/pesky-dust.svg",
+      "localFallbackExists": true,
+      "firebaseStoragePath": "characters/pesky-dust.webp",
+      "urlSyntaxValid": true,
+      "duplicateId": false,
+      "duplicateName": false,
+      "hashCollisionWith": null,
+      "networkProbe": {
+        "status": "SKIPPED_OFFLINE (Run with --probe-network to test live HTTP status)",
+        "httpStatus": null
+      }
+    },
+    {
+      "rowNumber": 60,
+      "characterId": "walkatrout",
+      "characterName": "Walkatrout",
+      "species": "Ickthyperambuloid",
+      "role": "Infiltrator",
+      "rarity": "Common",
+      "excelImageUrl": "https://www.wikihow.com/images/thumb/0/0b/All-Ben-10-Aliens-Step-53.jpg/728px-All-Ben-10-Aliens-Step-53.jpg.webp",
+      "fallbackImageUrl": "/images/aliens/walkatrout.svg",
+      "localFallbackExists": true,
+      "firebaseStoragePath": "characters/walkatrout.webp",
+      "urlSyntaxValid": true,
+      "duplicateId": false,
+      "duplicateName": false,
+      "hashCollisionWith": null,
+      "networkProbe": {
+        "status": "SKIPPED_OFFLINE (Run with --probe-network to test live HTTP status)",
+        "httpStatus": null
+      }
+    },
+    {
+      "rowNumber": 61,
+      "characterId": "ball-weevil",
+      "characterName": "Ball Weevil",
+      "species": "Insectoid",
+      "role": "Blaster",
+      "rarity": "Rare",
+      "excelImageUrl": "https://www.wikihow.com/images/thumb/3/3d/All-Ben-10-Aliens-Step-52.jpg/728px-All-Ben-10-Aliens-Step-52.jpg.webp",
+      "fallbackImageUrl": "/images/aliens/ball-weevil.svg",
+      "localFallbackExists": true,
+      "firebaseStoragePath": "characters/ball-weevil.webp",
+      "urlSyntaxValid": true,
+      "duplicateId": false,
+      "duplicateName": false,
+      "hashCollisionWith": "wildmutt",
+      "networkProbe": {
+        "status": "SKIPPED_OFFLINE (Run with --probe-network to test live HTTP status)",
+        "httpStatus": null
+      }
+    },
+    {
+      "rowNumber": 62,
+      "characterId": "crashopper",
+      "characterName": "Crashopper",
+      "species": "Orthopterran",
+      "role": "Brawler",
+      "rarity": "Rare",
+      "excelImageUrl": "https://www.wikihow.com/images/thumb/b/ba/All-Ben-10-Aliens-Step-51.jpg/728px-All-Ben-10-Aliens-Step-51.jpg.webp",
+      "fallbackImageUrl": "/images/aliens/crashopper.svg",
+      "localFallbackExists": true,
+      "firebaseStoragePath": "characters/crashopper.webp",
+      "urlSyntaxValid": true,
+      "duplicateId": false,
+      "duplicateName": false,
+      "hashCollisionWith": null,
+      "networkProbe": {
+        "status": "SKIPPED_OFFLINE (Run with --probe-network to test live HTTP status)",
+        "httpStatus": null
+      }
+    }
+  ]
+}

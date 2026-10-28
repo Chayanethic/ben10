@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 320" width="400" height="320">
+  <defs>
+    <radialGradient id="bgGlow" cx="50%" cy="48%" r="60%">
+      <stop offset="0%" stop-color="#ff8800" stop-opacity="0.45"/>
+      <stop offset="62%" stop-color="#0b180e" stop-opacity="0.94"/>
+      <stop offset="100%" stop-color="#040906" stop-opacity="1"/>
+    </radialGradient>
+    <linearGradient id="fireOuter" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffee00"/>
+      <stop offset="50%" stop-color="#ff5500"/>
+      <stop offset="100%" stop-color="#aa1100"/>
+    </linearGradient>
+    <pattern id="hexGrid" width="24" height="24" patternUnits="userSpaceOnUse">
+      <path d="M12 0 L24 6 L24 18 L12 24 L0 18 L0 6 Z" fill="none" stroke="#ff8800" stroke-width="0.65" stroke-opacity="0.22"/>
+    </pattern>
+  </defs>
+  <rect width="400" height="320" fill="url(#bgGlow)"/>
+  <rect width="400" height="320" fill="url(#hexGrid)"/>
+  <!-- Omnitrix Energy Halo -->
+  <circle cx="200" cy="158" r="110" fill="none" stroke="#ff8800" stroke-width="2" stroke-opacity="0.45" stroke-dasharray="14 7"/>
+  <circle cx="200" cy="158" r="95" fill="none" stroke="#baff39" stroke-width="1.5" stroke-opacity="0.32"/>
+  <!-- Corner Framing -->
+  <path d="M16 40 L16 16 L44 16" fill="none" stroke="#ff8800" stroke-width="3"/>
+  <path d="M384 40 L384 16 L356 16" fill="none" stroke="#ff8800" stroke-width="3"/>
+  <path d="M16 280 L16 304 L44 304" fill="none" stroke="#ff8800" stroke-width="3"/>
+  <path d="M384 280 L384 304 L356 304" fill="none" stroke="#ff8800" stroke-width="3"/>
+  <!-- Top Species / Element Header -->
+  <text x="26" y="32" fill="#d9ffab" font-family="monospace" font-size="11" font-weight="bold" letter-spacing="1.5">VULPIMANCER</text>
+  <text x="374" y="32" fill="#ffcc44" font-family="monospace" font-size="11" font-weight="bold" text-anchor="end">BEAST // TRACKER</text>
+  <!-- Detailed Alien Vector Illustration -->
+  
+      <!-- Quadruped Muscular Orange Beast Silhouette -->
+      <path d="M95 255 C105 165 145 110 200 110 C255 110 295 165 305 255 Z" fill="#e66a00" stroke="#ffaa33" stroke-width="3.5"/>
+      <!-- Spiky Fur Crest -->
+      <polygon points="145,118 165,78 185,112 200,72 215,112 235,78 255,118" fill="#ff8811" stroke="#331500" stroke-width="2.5"/>
+      <!-- Eyeless Upper Snout + Sensor Gill Slits -->
+      <path d="M142 145 Q200 125 258 145 L248 215 Q200 238 152 215 Z" fill="#d45d00" stroke="#331500" stroke-width="3"/>
+      <g stroke="#220d00" stroke-width="4.5" stroke-linecap="round">
+        <line x1="128" y1="152" x2="145" y2="165"/><line x1="124" y1="168" x2="143" y2="180"/><line x1="128" y1="184" x2="145" y2="195"/>
+        <line x1="272" y1="152" x2="255" y2="165"/><line x1="276" y1="168" x2="257" y2="180"/><line x1="272" y1="184" x2="255" y2="195"/>
+      </g>
+      <!-- Massive Underbite Fangs -->
+      <path d="M156 192 Q200 208 244 192 L238 220 Q200 232 162 220 Z" fill="#1a0900"/>
+      <polygon points="164,216 174,186 184,218" fill="#ffffff"/>
+      <polygon points="236,216 226,186 216,218" fill="#ffffff"/>
+      <polygon points="188,220 195,198 202,220" fill="#ffffff"/>
+      <polygon points="202,220 208,198 215,220" fill="#ffffff"/>
+    
+  <!-- Signature Omnitrix Badge -->
+  <g transform="translate(200, 246)">
+    <circle cx="0" cy="0" r="16" fill="#07110a" stroke="#baff39" stroke-width="3"/>
+    <polygon points="-9,-11 9,-11 3,0 9,11 -9,11 -3,0" fill="#baff39"/>
+  </g>
+  <!-- Bottom Name Plate -->
+  <rect x="44" y="276" width="312" height="28" rx="6" fill="#061009" fill-opacity="0.92" stroke="#ff8800" stroke-width="1.8"/>
+  <text x="200" y="295" fill="#ffffff" font-family="monospace" font-size="14" font-weight="bold" letter-spacing="3" text-anchor="middle">WILDMUTT</text>
+</svg>

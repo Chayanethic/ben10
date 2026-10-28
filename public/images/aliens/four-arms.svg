@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 320" width="400" height="320">
+  <defs>
+    <radialGradient id="bgGlow" cx="50%" cy="48%" r="60%">
+      <stop offset="0%" stop-color="#ee2222" stop-opacity="0.45"/>
+      <stop offset="62%" stop-color="#0b180e" stop-opacity="0.94"/>
+      <stop offset="100%" stop-color="#040906" stop-opacity="1"/>
+    </radialGradient>
+    <linearGradient id="fireOuter" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffee00"/>
+      <stop offset="50%" stop-color="#ff5500"/>
+      <stop offset="100%" stop-color="#aa1100"/>
+    </linearGradient>
+    <pattern id="hexGrid" width="24" height="24" patternUnits="userSpaceOnUse">
+      <path d="M12 0 L24 6 L24 18 L12 24 L0 18 L0 6 Z" fill="none" stroke="#ee2222" stroke-width="0.65" stroke-opacity="0.22"/>
+    </pattern>
+  </defs>
+  <rect width="400" height="320" fill="url(#bgGlow)"/>
+  <rect width="400" height="320" fill="url(#hexGrid)"/>
+  <!-- Omnitrix Energy Halo -->
+  <circle cx="200" cy="158" r="110" fill="none" stroke="#ee2222" stroke-width="2" stroke-opacity="0.45" stroke-dasharray="14 7"/>
+  <circle cx="200" cy="158" r="95" fill="none" stroke="#baff39" stroke-width="1.5" stroke-opacity="0.32"/>
+  <!-- Corner Framing -->
+  <path d="M16 40 L16 16 L44 16" fill="none" stroke="#ee2222" stroke-width="3"/>
+  <path d="M384 40 L384 16 L356 16" fill="none" stroke="#ee2222" stroke-width="3"/>
+  <path d="M16 280 L16 304 L44 304" fill="none" stroke="#ee2222" stroke-width="3"/>
+  <path d="M384 280 L384 304 L356 304" fill="none" stroke="#ee2222" stroke-width="3"/>
+  <!-- Top Species / Element Header -->
+  <text x="26" y="32" fill="#d9ffab" font-family="monospace" font-size="11" font-weight="bold" letter-spacing="1.5">TETRAMAND</text>
+  <text x="374" y="32" fill="#ff7755" font-family="monospace" font-size="11" font-weight="bold" text-anchor="end">PHYSICAL // BRAWLER</text>
+  <!-- Detailed Alien Vector Illustration -->
+  
+      <!-- Upper Pair of Colossal Red Arms -->
+      <path d="M72 175 C62 115 95 85 138 118 L152 162 Z" fill="#d32f2f" stroke="#ff7755" stroke-width="3"/>
+      <path d="M328 175 C338 115 305 85 262 118 L248 162 Z" fill="#d32f2f" stroke="#ff7755" stroke-width="3"/>
+      <!-- Lower Pair of Muscular Forearms -->
+      <path d="M85 255 C75 210 105 182 145 198 L145 255 Z" fill="#b71c1c" stroke="#ff7755" stroke-width="3"/>
+      <path d="M315 255 C325 210 295 182 255 198 L255 255 Z" fill="#b71c1c" stroke="#ff7755" stroke-width="3"/>
+      <!-- Gladiator Torso with Black & Gold Harness -->
+      <path d="M135 265 L148 175 L252 175 L265 265 Z" fill="#e53935" stroke="#ff8a80" stroke-width="3"/>
+      <polygon points="178,175 222,175 214,265 186,265" fill="#161616" stroke="#ffd54f" stroke-width="2"/>
+      <!-- Fierce Tetramand Head with Four Eyes -->
+      <path d="M158 92 L200 76 L242 92 L236 172 L200 185 L164 172 Z" fill="#c62828" stroke="#ff8a80" stroke-width="3"/>
+      <line x1="200" y1="76" x2="200" y2="175" stroke="#111111" stroke-width="5"/>
+      <!-- 4 Glowing Yellow Eyes -->
+      <polygon points="168,118 192,124 172,132" fill="#ffee58"/>
+      <polygon points="232,118 208,124 228,132" fill="#ffee58"/>
+      <polygon points="170,138 192,143 174,150" fill="#ffee58"/>
+      <polygon points="230,138 208,143 226,150" fill="#ffee58"/>
+    
+  <!-- Signature Omnitrix Badge -->
+  <g transform="translate(200, 246)">
+    <circle cx="0" cy="0" r="16" fill="#07110a" stroke="#baff39" stroke-width="3"/>
+    <polygon points="-9,-11 9,-11 3,0 9,11 -9,11 -3,0" fill="#baff39"/>
+  </g>
+  <!-- Bottom Name Plate -->
+  <rect x="44" y="276" width="312" height="28" rx="6" fill="#061009" fill-opacity="0.92" stroke="#ee2222" stroke-width="1.8"/>
+  <text x="200" y="295" fill="#ffffff" font-family="monospace" font-size="14" font-weight="bold" letter-spacing="3" text-anchor="middle">FOUR ARMS</text>
+</svg>
